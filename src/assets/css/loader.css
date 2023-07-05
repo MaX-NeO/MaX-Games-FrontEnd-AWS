@@ -1,0 +1,21 @@
+  .loaderx{
+    margin-top: 8vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 92vh;
+    background-color: rgb(0, 0, 0);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  #cubes{
+    height: 100%;
+    width: 100%;
+    max-height: 512px;
+    max-width: 512px;
+    transform:scale(1.5, 1) rotatex(45deg) rotateZ(45deg);
+  }
