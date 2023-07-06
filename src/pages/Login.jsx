@@ -109,7 +109,7 @@ export default function Login() {
                                             </div>
                                             <div className="slide-content">
                                                 <h2>Turn your skills into reality.</h2>
-                                                <p>`[`Play - Eat - Sleep `]`</p>
+                                                <Link to="/Admin/Login" className="link create-account" >Admin ?</Link>
                                             </div>
                                         </div>
                                     </div>
