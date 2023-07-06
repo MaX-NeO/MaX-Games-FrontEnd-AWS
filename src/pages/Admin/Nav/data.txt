@@ -1,19 +1,6 @@
+[
   {
-    "id": 1,
-    "gamename": "COD Black Ops 4",
-    "releaseyear": 2018,
-    "gamedeveloper": "Activision",
-    "gametype": "Action",
-    "gameratings": 7.1,
-    "gameprice": 1200,
-    "gamecover": "https://store-images.s-microsoft.com/image/apps.62553.63686339552071591.ae7ee088-c1d7-421b-8368-10451cd63360.1287229a-8a9d-457a-822a-8bd05e94b148?q=100&w=177&h=265",
-    "gamedesc": "Black Ops 4 features gritty, grounded, fluid Multiplayer combat, the biggest Zombies offering ever with five full undead adventures, and Blackout, where the universe of Black Ops comes to life in two massive battle royale experiences.",
-    "coverurl1": "https://store-images.s-microsoft.com/image/apps.15874.63686339552071591.ae7ee088-c1d7-421b-8368-10451cd63360.06307df9-a377-4b51-ad82-c7ee2427ac71",
-    "coverurl2": "https://store-images.s-microsoft.com/image/apps.44834.63686339552071591.ae7ee088-c1d7-421b-8368-10451cd63360.e9e66c37-7d46-4f77-85a5-ecca21119c46",
-    "coverurl3": "https://store-images.s-microsoft.com/image/apps.31731.63686339552071591.32887d80-9d38-43b7-bd50-60cc22d82af2.a1d7a378-6f99-4e80-8bca-d2fcaf15ad0e"
-  },
-  {
-    "id": 2,
+
     "gamename": "Assassin's Creed Valhalla",
     "releaseyear": 2020,
     "gamedeveloper": "UbiSoft",
@@ -27,7 +14,7 @@
     "coverurl3": "https://store-images.s-microsoft.com/image/apps.57511.14495541231925689.87cddd19-b73b-401b-b708-13b9eaef685f.82795aef-ca84-486b-94f0-9ae4150a9037"
   },
   {
-    "id": 3,
+
     "gamename": "Forza Horizon 5",
     "releaseyear": 2019,
     "gamedeveloper": "Playground Games",
@@ -41,7 +28,7 @@
     "coverurl3": "https://store-images.s-microsoft.com/image/apps.63181.13718773309227929.a9ed3a56-4096-4b23-aca9-a9d49ff8b774.a5685119-55e4-4c57-9623-45ffb1e5e750"
   },
   {
-    "id": 52,
+
     "gamename": "The Witcher 3",
     "releaseyear": 2018,
     "gamedeveloper": "CD PROJEKT S.A.",
@@ -55,7 +42,21 @@
     "coverurl3": "https://store-images.s-microsoft.com/image/apps.16258.65858607118306853.0646c27c-9fb5-4af2-a9ee-f673ee1ef239.c5ca5391-1678-4ade-a98d-89107c40945b"
   },
   {
-    "id": 204,
+
+    "gamename": "COD Black Ops 4",
+    "releaseyear": 2018,
+    "gamedeveloper": "Activision",
+    "gametype": "Action",
+    "gameratings": 7.1,
+    "gameprice": 1200,
+    "gamecover": "https://store-images.s-microsoft.com/image/apps.62553.63686339552071591.ae7ee088-c1d7-421b-8368-10451cd63360.1287229a-8a9d-457a-822a-8bd05e94b148?q=100&w=177&h=265",
+    "gamedesc": "Black Ops 4 features gritty, grounded, fluid Multiplayer combat, the biggest Zombies offering ever with five full undead adventures, and Blackout, where the universe of Black Ops comes to life in two massive battle royale experiences.",
+    "coverurl1": "https://store-images.s-microsoft.com/image/apps.15874.63686339552071591.ae7ee088-c1d7-421b-8368-10451cd63360.06307df9-a377-4b51-ad82-c7ee2427ac71",
+    "coverurl2": "https://store-images.s-microsoft.com/image/apps.44834.63686339552071591.ae7ee088-c1d7-421b-8368-10451cd63360.e9e66c37-7d46-4f77-85a5-ecca21119c46",
+    "coverurl3": "https://store-images.s-microsoft.com/image/apps.31731.63686339552071591.32887d80-9d38-43b7-bd50-60cc22d82af2.a1d7a378-6f99-4e80-8bca-d2fcaf15ad0e"
+  },
+  {
+
     "gamename": "Cyberpunk 2077",
     "releaseyear": 2018,
     "gamedeveloper": "CD PROJEKT RED",
@@ -69,7 +70,7 @@
     "coverurl3": "https://store-images.s-microsoft.com/image/apps.46015.63407868131364914.bcaa868c-407e-42c2-baeb-48a3c9f29b54.bc20335b-495a-4130-a715-93de321138dc"
   },
   {
-    "id": 205,
+  
     "gamename": "COD Modern Warfare® II",
     "releaseyear": 2016,
     "gamedeveloper": "Activision Publishing Inc.",
@@ -81,4 +82,32 @@
     "coverurl1": "https://store-images.s-microsoft.com/image/apps.64819.14197948149887241.2194cd5a-49b3-45f0-957c-3e40cc507ce8.cc9e1f7a-e70a-4ec4-85a1-6554ca9e0d5f",
     "coverurl2": "https://store-images.s-microsoft.com/image/apps.54086.14197948149887241.2194cd5a-49b3-45f0-957c-3e40cc507ce8.72b3b1a8-9e80-4812-9ef5-b4c414fd88da",
     "coverurl3": "https://store-images.s-microsoft.com/image/apps.25947.14197948149887241.2194cd5a-49b3-45f0-957c-3e40cc507ce8.b6492060-5fd5-470c-a24e-db4094f12f60"
+  },
+  {
+    "gamename": "Destiny 2",
+    "releaseyear": 2019,
+    "gamedeveloper": "Bungie",
+    "gametype": "Action",
+    "gameratings": 7.2,
+    "gameprice": 3999,
+    "gamecover": "https://store-images.s-microsoft.com/image/apps.30303.68655995542193491.618ba70a-85c2-47a4-944e-7a9b39528ca8.c3eb629f-7dac-460f-adc2-ba0f395b6c66?w=200",
+    "gamedesc": "Dive into the world of Destiny 2 to explore the mysteries of the solar system and experience responsive first-person shooter combat.",
+    "coverurl1": "https://store-images.s-microsoft.com/image/apps.9428.68655995542193491.8ebaffb9-0b52-40b0-9395-b18addc8fafa.2ef0df99-a63a-421d-935d-da31446ed80f",
+    "coverurl2": "https://store-images.s-microsoft.com/image/apps.57606.68655995542193491.caf9a2b8-1f59-43f3-99b8-54353060f6de.0ab10705-6c82-4ddb-8ea3-ef029dd77ce4",
+    "coverurl3": "https://store-images.s-microsoft.com/image/apps.53943.68655995542193491.8ebaffb9-0b52-40b0-9395-b18addc8fafa.edd6780e-7e32-4a90-a59b-f895c96fe90a"
+  },
+  {
+
+    "gamename": "Mortal Kombat 11",
+    "releaseyear": 2019,
+    "gamedeveloper": "Warner Bros.",
+    "gametype": "Fighting",
+    "gameratings": 7.6,
+    "gameprice": 1999,
+    "gamecover": "https://store-images.s-microsoft.com/image/apps.9688.70804610839547354.8da93c46-fd13-4b16-8ebe-e8e02c53d93e.09c2e91e-28bd-4f6f-bfd6-79d6b241667a?w=200",
+    "gamedesc": "Mortal Kombat 11 is the latest installment in the critically acclaimed franchise, providing a deeper and more personalised experience than ever before. ",
+    "coverurl1": "https://store-images.s-microsoft.com/image/apps.56713.70804610839547354.8da93c46-fd13-4b16-8ebe-e8e02c53d93e.c876a52d-d1a6-4117-b88e-313e1ef2bac2",
+    "coverurl2": "https://store-images.s-microsoft.com/image/apps.22804.70804610839547354.9477ad2f-9923-4911-b74d-5ed9c834af4a.c136c2ff-9144-4e20-b8e9-68dcd017f17d",
+    "coverurl3": "https://store-images.s-microsoft.com/image/apps.35373.70804610839547354.8da93c46-fd13-4b16-8ebe-e8e02c53d93e.6045658e-895e-4c26-a08f-9582d3a218b9"
   }
+]

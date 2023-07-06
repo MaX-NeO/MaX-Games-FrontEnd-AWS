@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { SignIn,UserData } from '../services/api'
+import { AdminSignIn } from '../../services/api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
-import Dashboard from './Client/Dashboard';
-import Logo from '../assets/img/logo.png';
+import AdminDashboard from './AdminDashboard';
+import Logo from '../../assets/img/logo.png';
 
-export default function Login() {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
+export default function AdminLogin() {
+    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isAdmin') === 'true');
     const navigate = useNavigate();
     const [signin, setSignin] = useState({
         username: '',
@@ -22,13 +22,11 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await SignIn(signin.username, signin.password);
+        const res = await AdminSignIn(signin.username, signin.password);
         if (res.data === "Login Successful !") {
-            const userData = await UserData(signin.username);
-            const userId = userData.data.id;
-            Cookies.set('Usernamex', signin.username);
-            Cookies.set('Useridx', userId);
-            Cookies.set('isLoggedIn', 'true');
+ 
+            Cookies.set('Usernamez', signin.username);
+            Cookies.set('isAdmin', 'true');
             toast.success('Login Successful !', {
                 position: "bottom-right",
                 autoClose: 1000,
@@ -40,7 +38,7 @@ export default function Login() {
                 theme: "dark",
             });
             setTimeout(() => {
-                navigate('/dashboard/games');
+                navigate('/Admin/dashboard');
             }, 1500);
 
         } else if (res.data === "Invalid Password") {
@@ -72,7 +70,7 @@ export default function Login() {
     return (
         <>
             {isLoggedIn ?
-                <Dashboard />
+                <AdminDashboard />
                 :
                 <div className='mainxz'>
                     <div className='auth-data'>
@@ -83,11 +81,9 @@ export default function Login() {
                                     <div className="logo"><svg height={512} viewBox="0 0 192 192" width={512} xmlns="http://www.w3.org/2000/svg">
                                         <path d="m155.109 74.028a4 4 0 0 0 -3.48-2.028h-52.4l8.785-67.123a4.023 4.023 0 0 0 -7.373-2.614l-63.724 111.642a4 4 0 0 0 3.407 6.095h51.617l-6.962 67.224a4.024 4.024 0 0 0 7.411 2.461l62.671-111.63a4 4 0 0 0 .048-4.027z" />
                                     </svg></div>
-                                    <h1 className="logtext">Login</h1>
+                                    <h1 className="logtext">Admin Login</h1>
 
-                                    <div className="sign-in-seperator">
-                                        <span>Sign in with Username</span>
-                                    </div>
+
                                     <form onSubmit={handleSubmit}>
                                         <div className="login-form-group">
                                             <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required />
@@ -97,7 +93,6 @@ export default function Login() {
                                         </div>
                                         <input type="submit" className="rounded-button login-cta d-form-btn" placeholder='Login' value='Login' />
                                     </form>
-                                    <div className="register-div">Not registered yet? <Link to="/register" className="link create-account" >Create an account ?</Link></div>
                                 </div>
                             </div>
                             <div className="onboarding">

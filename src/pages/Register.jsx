@@ -25,7 +25,7 @@ export default function Register() {
 
     const res = await SignUp(signup.username, signup.password, signup.email, signup.phone, signup.age);
     console.log(res);
-    if (res.data === "Signup Successful") {
+    if (res.data === "Signup Successful !") {
       toast.success('Signup Successful !', {
         position: "bottom-right",
         autoClose: 1000,

@@ -1,11 +1,11 @@
-import GameNav from "./Nav/Gamenav";
+import AdminNav from "./Nav/AdminNav";
 import { useEffect, useState } from "react";
 import { Gamesx, GameDelete } from "../../services/api";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Dashboard() {
+export default function AdminDashboard() {
     const [gamesx, setGamesx] = useState([]);
 
     useEffect(() => {
@@ -48,7 +48,7 @@ export default function Dashboard() {
 
     return (
         <div className='game-x-main'>
-            <GameNav />
+            <AdminNav />
             <div className='game-actions'>
                 <h1 className="game-page-title">Games Dashboard</h1>
 

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GameNav from './Nav/Gamenav';
-import { GameAdd } from '../../services/api';
+import { userGameAdd } from '../../services/api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'js-cookie';
 
 export default function Addgame() {
+  const usernameX = Cookies.get('Usernamex');
   const navigate = useNavigate();
   const [game, setGame] = useState({
     gamename: '',
@@ -23,7 +25,7 @@ export default function Addgame() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    GameAdd(game)
+    userGameAdd(usernameX,game)
       .then((res) => {
         // toast.success
         toast.success('Game Added !', {

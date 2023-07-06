@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/img/logo.png';
 import Cookies from 'js-cookie';
 
 export default function Header() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(Cookies.get('isLoggedIn') === 'true');
+  }, []);
 
   const rhome = () => {
     navigate('/');
@@ -20,8 +24,22 @@ export default function Header() {
   };
 
   const rlogin = () => {
+    if (isLoggedIn) {
+      navigate('/dashboard/games');
+    } else {
       navigate('/login');
+    }
   };
+
+  useEffect(() => {
+    const handleCookieChange = () => {
+      setIsLoggedIn(Cookies.get('isLoggedIn') === 'true');
+    };   
+    window.addEventListener('change', handleCookieChange);
+    return () => {
+      window.removeEventListener('change', handleCookieChange);
+    };
+  }, []);
 
   return (
     <>

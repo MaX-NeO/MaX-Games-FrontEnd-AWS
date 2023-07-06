@@ -6,10 +6,15 @@ import Login from "./pages/Login";
 import Events from "./pages/Events";
 import Register from "./pages/Register";
 import GameViewPage from "./pages/Game";
-import Dashboard from "./pages/Admin/Dashboard";
-import Addgame from "./pages/Admin/Addgame";
-import Editgame from "./pages/Admin/Editgame";
 import GameCategories from "./pages/GameCategories";
+
+import Dashboard from "./pages/Client/Dashboard";
+import Addgame from "./pages/Client/Addgame";
+import Editgame from "./pages/Client/Editgame";
+import AdminLogin from "./pages/Admin/AdminLogin";
+import AdminAddgame from "./pages/Admin/AdminAddgame";
+import AdminEditGame from "./pages/Admin/AdminEditgame";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
 
 function App() {
   return (
@@ -25,10 +30,15 @@ function App() {
           <Route exact path="/Game/:id" element={<GameViewPage/>}/>
           <Route exact path="/Game/categories/:gametype" element={<GameCategories/>}/>
           
-          {/* Auth routes */}
+          {/* User Auth routes */}
           <Route exact path="/dashboard/games" element={<Dashboard/>}/>
           <Route exact path="/dashboard/games/add" element={<Addgame/>}/>
           <Route exact path="/dashboard/games/edit/:id" element={<Editgame/>}/>
+          {/* Admin Auth routes */}
+          <Route exact path="/Admin/Login" element={<AdminLogin/>}/>
+          <Route exact path="/Admin/dashboard" element={<AdminDashboard/>}/>          
+          <Route exact path="/Admin/games/add" element={<AdminAddgame/>}/>    
+          <Route exact path="/Admin/games/edit/:id" element={<AdminEditGame/>}/>
         </Routes>
       </div >
     </>

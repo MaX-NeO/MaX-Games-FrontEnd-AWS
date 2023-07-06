@@ -12,7 +12,6 @@ export default function Home() {
 
         <Slide/>
         <Category/>
-        {/* <div className='test-high'>Hello World !</div> */}
       </div>
     </>
   )

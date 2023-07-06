@@ -5,20 +5,12 @@ import Cookies from 'js-cookie';
 export default function GameNav() {
     const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
     const navigate = useNavigate();
-    useEffect(() => {
-        if (!isLoggedIn) {
-          navigate('/login');
-        }
-      }, [isLoggedIn, navigate]);
+
 
     const userlogout = () => {
-        if (isLoggedIn) {
-            navigate('/login');
-            Cookies.remove('isLoggedIn');
-            setIsLoggedIn(false);
-        } else {
-            navigate('/login');
-        }
+        Cookies.remove('isLoggedIn');
+        setIsLoggedIn(false);
+        navigate('/login');
     };
 
     const routegame = () => {
