@@ -32,7 +32,7 @@
     "gamename": "The Witcher 3",
     "releaseyear": 2018,
     "gamedeveloper": "CD PROJEKT S.A.",
-    "gametype": "Racing",
+    "gametype": "Openworld",
     "gameratings": 8.3,
     "gameprice": 4202.4,
     "gamecover": "https://store-images.s-microsoft.com/image/apps.53717.65858607118306853.39ed2a08-df0d-4ae1-aee0-c66ffb783a34.80ba72da-abfb-4af6-81f2-a443d12fb870?w=200",
