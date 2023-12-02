@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Loader from '../components/loader';
 import { useParams, Link } from 'react-router-dom';
 import { GameCategoriesDataView } from '../services/api';
 
@@ -10,7 +9,7 @@ const GameCategories = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await GameCategoriesDataView(gametype) ;
+        const response = await GameCategoriesDataView(gametype);
         setGamesx(response.data);
       } catch (error) {
         console.error(error);
@@ -22,7 +21,6 @@ const GameCategories = () => {
 
   return (
     <>
-      <Loader />
       <div className='main'>
         <div className='game-container'>
           {gamesx.map((game) => (

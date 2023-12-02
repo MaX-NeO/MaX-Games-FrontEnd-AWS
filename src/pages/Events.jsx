@@ -1,5 +1,4 @@
 import React from 'react'
-import Loader from '../components/loader'
 import { useState } from 'react';
 import Cookies from 'js-cookie';
 import imgE1 from '../assets/img/events/event1.jpg';
@@ -12,9 +11,6 @@ export default function Events() {
   const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
   return (
     <>
-      <Loader />
-
-
       <div className='main'>
         {isLoggedIn ?
           <div className='event-topbar'>
@@ -25,7 +21,7 @@ export default function Events() {
         }
         <div className='event-x-content'>
           <div className='event-x-card'>
-            <div className='event-x-card-l'>
+            <div className='event-x-card-data'>
               <div className='event-x-card-title'>
                 <h1>
                   Save the date for our double feature event
@@ -37,15 +33,13 @@ export default function Events() {
                 </p>
               </div>
             </div>
-            <div className='event-x-card-r'>
-              <img src={imgE1} alt='event-img' />
+            <div className='event-x-card-img'>
+              <img src={imgE1} alt='event-img' className='event-x-img' />
             </div>
           </div>
           <div className='event-x-card'>
-            <div className='event-x-card-r'>
-              <img src={imgE2} alt='event-img' />
-            </div>
-            <div className='event-x-card-l'>
+
+            <div className='event-x-card-data'>
               <div className='event-x-card-title'>
                 <h1>
                   Convergence: A League of Legends Story
@@ -57,9 +51,13 @@ export default function Events() {
                 </p>
               </div>
             </div>
+            <div className='event-x-card-img'>
+              <img src={imgE2} alt='event-img' className='event-x-img' />
+            </div>
           </div>
+
           <div className='event-x-card'>
-            <div className='event-x-card-l'>
+            <div className='event-x-card-data'>
               <div className='event-x-card-title'>
                 <h1>
                   Call of Duty®: Modern Warfare II
@@ -71,28 +69,44 @@ export default function Events() {
                 </p>
               </div>
             </div>
-            <div className='event-x-card-r'>
-              <img src={imgE3} alt='event-img' />
+            <div className='event-x-card-img'>
+              <img src={imgE3} alt='event-img' className='event-x-img' />
             </div>
           </div>
+
           <div className='event-x-card'>
-            <div className='event-x-card-r'>
-              <img src={imgE4} alt='event-img' />
-            </div>
-            <div className='event-x-card-l'>
+
+            <div className='event-x-card-data'>
               <div className='event-x-card-title'>
                 <h1>
-                EA SPORTS™ FIFA 23
+                  EA SPORTS™ FIFA 23
                 </h1>
               </div>
               <div className='event-x-card-desc'>
                 <p>
-                Experience The World's Game with PC Game Pass or Ultimate
+                  Experience The World's Game with PC Game Pass or Ultimate
                 </p>
               </div>
             </div>
+            <div className='event-x-card-img'>
+              <img src={imgE4} alt='event-img' className='event-x-img' />
+            </div>
           </div>
         </div>
+
+
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     </>
   )

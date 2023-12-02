@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState,useEffect, Suspense } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import Logo from '../assets/img/logo.png';
 import Cookies from 'js-cookie';
 
@@ -65,6 +65,7 @@ export default function Header() {
           </div>
         </div>
       </nav>
+
     </>
   );
 }

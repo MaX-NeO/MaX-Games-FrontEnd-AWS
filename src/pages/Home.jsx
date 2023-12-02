@@ -1,17 +1,14 @@
-import React, { Suspense } from 'react'
-import Loader from '../components/loader'
+import React from 'react'
 import Slide from '../components/Slide'
 import Category from '../components/Category'
 
 export default function Home() {
   return (
     <>
-      <Suspense fallback={<Loader/>}>
       <div className='main'>
-        <Slide />
-        <Category />
+        <Slide/>
+        <Category/>
       </div>
-      </Suspense>
     </>
   )
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Loader from '../components/loader';
 import { GameView } from '../services/api';
 import Carousel from '../components/Carousel';
 import '../assets/css/Parallelx.css'
@@ -67,7 +66,6 @@ export default function GameViewPage() {
   }
   return (
     <div className='main'>
-      <Loader />
       <section
         style={{
           backgroundSize: `${(window.outerHeight - scrollPosition) / 3}%`,

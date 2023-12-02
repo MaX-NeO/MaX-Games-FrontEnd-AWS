@@ -75,7 +75,7 @@ export default function Login() {
                 <Dashboard />
                 :
                 <div className='mainxz'>
-                    <div className='auth-data'>
+                    <div className=''>
 
                         <div className="login-container">
                             <div className="login-form">
