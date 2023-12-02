@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from 'react';
+
 
 export default function Loader() {
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        let timer;
-        if (loading) {
-            timer = setTimeout(() => setLoading(false), 2800);
-        }
-        return () => clearTimeout(timer);
-    }, [loading]);
 
     return (
         <>
-            {loading && (
+           
                 <div className='loaderx'>
                     <svg id="cubes" width={512} height={512} viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'scale(1.66, 1) rotatex(45deg) rotateZ(45deg)' }}>
                         <rect width={512} height={512} fill="#000" />
@@ -88,7 +79,6 @@ export default function Loader() {
                         </defs>
                     </svg>
                 </div>
-            )}
         </>
     );
 }

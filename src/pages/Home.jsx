@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Loader from '../components/loader'
 import Slide from '../components/Slide'
 import Category from '../components/Category'
@@ -6,13 +6,12 @@ import Category from '../components/Category'
 export default function Home() {
   return (
     <>
-      <Loader />
+      <Suspense fallback={<Loader/>}>
       <div className='main'>
-
-
-        <Slide/>
-        <Category/>
+        <Slide />
+        <Category />
       </div>
+      </Suspense>
     </>
   )
 }
