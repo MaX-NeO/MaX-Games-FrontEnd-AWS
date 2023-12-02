@@ -15,7 +15,6 @@ export default function Loader() {
         <>
             {loading && (
                 <div className='loaderx'>
-                    {/*COPY :  SVG from Codepen */}
                     <svg id="cubes" width={512} height={512} viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'scale(1.66, 1) rotatex(45deg) rotateZ(45deg)' }}>
                         <rect width={512} height={512} fill="#000" />
                         <use href="#hole" fill="url(#grad)" x={256} y={256} transform="rotate(0, 256, 256)" />
