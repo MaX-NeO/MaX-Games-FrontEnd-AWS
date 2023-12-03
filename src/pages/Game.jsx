@@ -45,7 +45,7 @@ export default function GameViewPage() {
       <div className="loader-max">
         <span className="load-max"></span>
       </div>
-    </div>;
+    </div>
   }
 
   const carouselImages = [
@@ -96,7 +96,14 @@ export default function GameViewPage() {
           <div className='game-desc'>
             <h3 className="subtitle">{game.gamedesc}</h3>
             <div className='game-controls'>
-              <button className='game-back' onClick={backnavigation}>Back</button>
+              {/* <button className='game-back' onClick={backnavigation}>Back</button> */}
+              <button className="button-m-x game-back" onClick={backnavigation}>
+                <span>Back</span>
+                <div className="top orange"></div>
+                <div className="left orange"></div>
+                <div className="bottom orange"></div>
+                <div className="right orange"></div>
+              </button>
               <h3 className="game-sub">Relese year : <span className='game-rel'>{game.releaseyear}</span></h3>
             </div>
           </div>

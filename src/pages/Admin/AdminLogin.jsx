@@ -24,7 +24,7 @@ export default function AdminLogin() {
         e.preventDefault();
         const res = await AdminSignIn(signin.username, signin.password);
         if (res.data === "Login Successful !") {
- 
+
             Cookies.set('Usernamez', signin.username);
             Cookies.set('isAdmin', 'true');
             toast.success('Login Successful !', {
@@ -86,12 +86,19 @@ export default function AdminLogin() {
 
                                     <form onSubmit={handleSubmit}>
                                         <div className="login-form-group textInputWrapper">
-                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required  className='textInput'/>
+                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required className='textInput' />
                                         </div>
                                         <div className="login-form-group textInputWrapper">
-                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required  className='textInput'/>
+                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required className='textInput' />
                                         </div>
-                                        <input type="submit" className="rounded-button login-cta d-form-btn" placeholder='Login' value='Login' />
+                                        {/* <input type="submit" className="rounded-button login-cta d-form-btn" placeholder='Login' value='Login' /> */}
+                                        <button className="button-m-x mb-1" type='submit'>
+                                            <span>Login</span>
+                                            <div className="top green"></div>
+                                            <div className="left green"></div>
+                                            <div className="bottom green"></div>
+                                            <div className="right green"></div>
+                                        </button>
                                     </form>
                                 </div>
                             </div>

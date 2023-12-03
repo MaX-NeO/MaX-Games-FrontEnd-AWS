@@ -858,14 +858,15 @@ label {
 }
 
 .game-back {
-	background-color: #046003;
+	/* background-color: #046003;
 	color: #fff;
-	border: none;
-	width: 10vw;
+	border: none; */
+	width: 10vw !important;
+	padding: 0px !important;
 	margin-top: 1.1rem;
 	height: 2.7rem;
 	margin-right: 1rem;
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 .eventpage-x {
@@ -1360,7 +1361,7 @@ td {
 	bottom: 0;
 	position: absolute;
 	transform: translateX(64px);
-	animation: l-m-x 3.5s ease both infinite;
+	animation: l-m-x 2s ease both infinite;
   }
   
   .load-max::before {
@@ -1370,7 +1371,7 @@ td {
 	height: 100%;
 	background-color: #c2fff1;
 	border-radius: inherit;
-	animation: l-m-x 3.5s ease both infinite;
+	animation: l-m-x 2s ease both infinite;
   }
   
   
@@ -1432,7 +1433,8 @@ td {
 	position: relative;
 	width: 100;
 	margin: 12px 5px;
-	--accent-color: #a3e583;
+	--accent-color: #07bc0c;
+	
   }
   
   .textInputWrapper:before {
@@ -1488,7 +1490,7 @@ td {
   }
   
   .textInputWrapper .textInput {
-	border-radius: 5px 5px 0px 0px;
+	border-radius: 1px 1px 0px 0px;
 	box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
 	max-height: 36px;
 	background-color: #252525;
@@ -1514,10 +1516,136 @@ td {
   .textInputWrapper:focus-within .textInput,
   .textInputWrapper .textInput:focus,
   .textInputWrapper .textInput:active {
-	background-color: #353535;
+	background-color: #1b1b1b;
   }
   
   .textInputWrapper:focus-within .textInput::placeholder {
 	opacity: 0;
   }
   
+  .button-m-x {
+	width: 100%;
+    padding: 10px 60px;
+    background-color: #000;
+    border: none;
+    font-size: 18px;
+    position: relative;
+    /* overflow: hidden; */
+    transition: 500ms;
+	cursor: pointer;
+  }
+  
+  .button-m-x span {
+    color: gray;
+    position: relative;
+    transition: 500ms;
+    transition-delay: 500ms;
+    font-size: 16px;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+  
+  .button-m-x:before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+    transition: 500ms;
+    transition-delay: 500ms;
+    /* background-color: red; */
+  
+  }
+  
+  .button-m-x .red {
+    transition: 500ms;
+    position: absolute;
+    background-color: red;
+    box-shadow: 0 0 15px red, 0 0 30px red, 0 0 50px red;
+  }
+  .button-m-x .green {
+    transition: 500ms;
+    position: absolute;
+    background-color: #07bc0c;
+    box-shadow: 0 0 15px #07bc0c, 0 0 30px #07bc0c, 0 0 50px #07bc0c;
+  }
+  .button-m-x .orange {
+    transition: 500ms;
+    position: absolute;
+    background-color: #ffbb00;
+    box-shadow: 0 0 15px  #ffbb00, 0 0 30px #ffbb00, 0 0 50px  #ffbb00;
+  }
+  
+  .button-m-x .top {
+    width: 15px;
+    height: 2px;
+    top: 0;
+    left: 0;
+  }
+  
+  .button-m-x .bottom {
+    width: 15px;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .button-m-x .left {
+    width: 2px;
+    height: 15px;
+    top: 0;
+    left: 0;
+  }
+  
+  .button-m-x .right {
+    width: 2px;
+    height: 15px;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .button-m-x:hover {
+    color: #fff;
+  }
+  
+  .button-m-x:hover span {
+    color: #fff;
+  }
+  
+  .button-m-x:hover:before {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .button-m-x:hover .top, 
+  .button-m-x:hover .bottom {
+    width: 100%;
+  }
+  
+  .button-m-x:hover .left,
+  .button-m-x:hover .right {
+    height: 100%;
+  }
+  .mb-1{
+	margin-bottom: 1rem;
+  }
+  .mb-2{
+	margin-bottom: 2rem;
+  }
+
+  .sub-loader-x{
+	height: 90vh;
+	width: 100vw;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }

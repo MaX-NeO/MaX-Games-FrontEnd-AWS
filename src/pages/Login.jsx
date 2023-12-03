@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { SignIn,UserData } from '../services/api'
+import { SignIn, UserData } from '../services/api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import Dashboard from './Client/Dashboard';
 import Logo from '../assets/img/logo.png';
-
+// import Signinwebp from '../assets/img/signup.webp'
 export default function Login() {
     const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
     const navigate = useNavigate();
@@ -90,12 +90,19 @@ export default function Login() {
                                     </div> */}
                                     <form onSubmit={handleSubmit}>
                                         <div className="login-form-group textInputWrapper">
-                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required className='textInput'/>
+                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required className='textInput' />
                                         </div>
                                         <div className="login-form-group textInputWrapper">
-                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required  className='textInput'/>
+                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required className='textInput' />
                                         </div>
-                                        <input type="submit" className="rounded-button login-cta d-form-btn" placeholder='Login' value='Login' />
+                                        {/* <input type="submit" className="rounded-button login-cta d-form-btn" placeholder='Login' value='Login' /> */}
+                                        <button className="button-m-x mb-1" type='submit'>
+                                            <span>Login</span>
+                                            <div className="top green"></div>
+                                            <div className="left green"></div>
+                                            <div className="bottom green"></div>
+                                            <div className="right green"></div>
+                                        </button>
                                     </form>
                                     <div className="register-div">Not registered yet? <Link to="/register" className="link create-account" > Create an account </Link></div>
                                 </div>

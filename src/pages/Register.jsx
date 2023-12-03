@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState} from 'react'
+import { useState } from 'react'
 import { SignUp } from '../services/api'
 import Logo from '../assets/img/logo.png';
 import { ToastContainer, toast } from 'react-toastify';
@@ -81,21 +81,29 @@ export default function Register() {
                 <form onSubmit={handleSubmit}>
 
                   <div className="login-form-group textInputWrapper">
-                    <input type="text" placeholder="Username" id="username" value={signup.username} onChange={handleChange} required  className='textInput'/>
+                    <input type="text" placeholder="Username" id="username" value={signup.username} onChange={handleChange} required className='textInput' />
                   </div>
                   <div className="login-form-group textInputWrapper">
-                    <input type="email" placeholder="Email" id="email" value={signup.email} onChange={handleChange} required  className='textInput'/>
+                    <input type="email" placeholder="Email" id="email" value={signup.email} onChange={handleChange} required className='textInput' />
                   </div>
                   <div className="login-form-group textInputWrapper">
-                    <input autoComplete="off" type="password" placeholder="Password" id="password" value={signup.password} onChange={handleChange} required  className='textInput'/>
+                    <input autoComplete="off" type="password" placeholder="Password" id="password" value={signup.password} onChange={handleChange} required className='textInput' />
                   </div>
                   <div className="login-form-group textInputWrapper">
-                    <input autoComplete="off" type="number" placeholder="Mobile" id="phone" value={signup.phone} onChange={handleChange} required  className='textInput'/>
+                    <input autoComplete="off" type="number" placeholder="Mobile" id="phone" value={signup.phone} onChange={handleChange} required className='textInput' />
                   </div>
                   <div className="login-form-group textInputWrapper">
-                    <input autoComplete="off" type="number" placeholder="Age" id="age" value={signup.age} onChange={handleChange} required  className='textInput'/>
+                    <input autoComplete="off" type="number" placeholder="Age" id="age" value={signup.age} onChange={handleChange} required className='textInput' />
                   </div>
-                  <input type='submit' className="rounded-button login-cta d-form-btn" placeholder='Signup' value='Register' />
+                  {/* <input type='submit' className="rounded-button login-cta d-form-btn" placeholder='Signup' value='Register' /> */}
+                  <button className="button-m-x mb-1" type='submit'>
+                    <span>Register</span>
+                    <div className="top green"></div>
+                    <div className="left green"></div>
+                    <div className="bottom green"></div>
+                    <div className="right green"></div>
+                  </button>
+
                 </form>
                 <div className="register-div">Goback ? <Link to="/login" className="link create-account" > Login </Link></div>
               </div>
