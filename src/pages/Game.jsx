@@ -11,7 +11,7 @@ export default function GameViewPage() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   const handleScroll = () => setScrollPosition(window.pageYOffset);
 
   useEffect(() => {
@@ -40,7 +40,12 @@ export default function GameViewPage() {
   }, [id]);
 
   if (!game) {
-    return <div>Loading ..</div>;
+    return
+    <div>
+      <div className="loader-max">
+        <span className="load-max"></span>
+      </div>
+    </div>;
   }
 
   const carouselImages = [

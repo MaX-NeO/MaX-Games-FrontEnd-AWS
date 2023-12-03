@@ -69,8 +69,8 @@ export default function Register() {
   return (
     <>
       <div className='main'>
-        <div className='d-reg-wrap'>
-          <div className="login-container">
+        <div className='d-reg-wrap max-d-filter'>
+          <div className="login-container h-x-40">
             <div className="login-form">
               <div className="login-form-inner">
                 <div className="logo"><svg height={512} viewBox="0 0 192 192" width={512} xmlns="http://www.w3.org/2000/svg">
@@ -78,29 +78,26 @@ export default function Register() {
                 </svg></div>
                 <h1 className="logtext">Register</h1>
 
-                <div className="sign-in-seperator">
-                  <span>Sign Up with Email</span>
-                </div>
                 <form onSubmit={handleSubmit}>
 
-                  <div className="login-form-group">
-                    <input type="text" placeholder="Username" id="username" value={signup.username} onChange={handleChange} required />
+                  <div className="login-form-group textInputWrapper">
+                    <input type="text" placeholder="Username" id="username" value={signup.username} onChange={handleChange} required  className='textInput'/>
                   </div>
-                  <div className="login-form-group">
-                    <input type="email" placeholder="Email" id="email" value={signup.email} onChange={handleChange} required />
+                  <div className="login-form-group textInputWrapper">
+                    <input type="email" placeholder="Email" id="email" value={signup.email} onChange={handleChange} required  className='textInput'/>
                   </div>
-                  <div className="login-form-group">
-                    <input autoComplete="off" type="password" placeholder="Password" id="password" value={signup.password} onChange={handleChange} required />
+                  <div className="login-form-group textInputWrapper">
+                    <input autoComplete="off" type="password" placeholder="Password" id="password" value={signup.password} onChange={handleChange} required  className='textInput'/>
                   </div>
-                  <div className="login-form-group">
-                    <input autoComplete="off" type="number" placeholder="Mobile" id="phone" value={signup.phone} onChange={handleChange} required />
+                  <div className="login-form-group textInputWrapper">
+                    <input autoComplete="off" type="number" placeholder="Mobile" id="phone" value={signup.phone} onChange={handleChange} required  className='textInput'/>
                   </div>
-                  <div className="login-form-group">
-                    <input autoComplete="off" type="number" placeholder="Age" id="age" value={signup.age} onChange={handleChange} required />
+                  <div className="login-form-group textInputWrapper">
+                    <input autoComplete="off" type="number" placeholder="Age" id="age" value={signup.age} onChange={handleChange} required  className='textInput'/>
                   </div>
                   <input type='submit' className="rounded-button login-cta d-form-btn" placeholder='Signup' value='Register' />
                 </form>
-                <div className="register-div">Goback ? <Link to="/login" className="link create-account" >Login</Link></div>
+                <div className="register-div">Goback ? <Link to="/login" className="link create-account" > Login </Link></div>
               </div>
             </div>
             <div className="onboarding">

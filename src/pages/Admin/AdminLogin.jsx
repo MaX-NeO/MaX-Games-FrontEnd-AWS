@@ -85,11 +85,11 @@ export default function AdminLogin() {
 
 
                                     <form onSubmit={handleSubmit}>
-                                        <div className="login-form-group">
-                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required />
+                                        <div className="login-form-group textInputWrapper">
+                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required  className='textInput'/>
                                         </div>
-                                        <div className="login-form-group">
-                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required />
+                                        <div className="login-form-group textInputWrapper">
+                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required  className='textInput'/>
                                         </div>
                                         <input type="submit" className="rounded-button login-cta d-form-btn" placeholder='Login' value='Login' />
                                     </form>

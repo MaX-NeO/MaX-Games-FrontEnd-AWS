@@ -74,7 +74,7 @@ export default function Login() {
             {isLoggedIn ?
                 <Dashboard />
                 :
-                <div className='mainxz'>
+                <div className='mainxz max-d-filter'>
                     <div className=''>
 
                         <div className="login-container">
@@ -85,19 +85,19 @@ export default function Login() {
                                     </svg></div>
                                     <h1 className="logtext">Login</h1>
 
-                                    <div className="sign-in-seperator">
+                                    {/* <div className="sign-in-seperator">
                                         <span>Sign in with Username</span>
-                                    </div>
+                                    </div> */}
                                     <form onSubmit={handleSubmit}>
-                                        <div className="login-form-group">
-                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required />
+                                        <div className="login-form-group textInputWrapper">
+                                            <input type="text" placeholder="Username" id="username" value={signin.username} onChange={handleChange} required className='textInput'/>
                                         </div>
-                                        <div className="login-form-group">
-                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required />
+                                        <div className="login-form-group textInputWrapper">
+                                            <input autoComplete="off" type="password" placeholder="Password" id="password" value={signin.password} onChange={handleChange} required  className='textInput'/>
                                         </div>
                                         <input type="submit" className="rounded-button login-cta d-form-btn" placeholder='Login' value='Login' />
                                     </form>
-                                    <div className="register-div">Not registered yet? <Link to="/register" className="link create-account" >Create an account ?</Link></div>
+                                    <div className="register-div">Not registered yet? <Link to="/register" className="link create-account" > Create an account </Link></div>
                                 </div>
                             </div>
                             <div className="onboarding">

@@ -199,23 +199,21 @@ label {
 
 
 .login-container {
-	display: flex;
-	max-width: 1200px;
-	/* background: var(--white); */
-	background: #181818;
-	margin: auto;
-	width: 100vw;
-	min-width: 320px;
-	border-radius: 15px;
-	box-shadow:
-		2.8px 2.8px 2.2px rgba(0, 0, 0, 0.03),
-		6.7px 6.7px 5.3px rgba(0, 0, 0, 0.037),
-		12.5px 12.5px 10px rgba(0, 0, 0, 0.042),
-		22.3px 22.3px 17.9px rgba(0, 0, 0, 0.048),
-		41.8px 41.8px 33.4px rgba(0, 0, 0, 0.057),
-		100px 100px 80px rgba(0, 0, 0, 0.07);
-}
+    display: flex;
+    /* max-width: 1200px; */
+    /* background: var(--white); */
+    background: #181818;
+    height: 30rem;
+    margin: auto;
+    width: 60vw;
+    min-width: 320px;
+    border-radius: 15px;
+    box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.03), 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.037), 12.5px 12.5px 10px rgba(0, 0, 0, 0.042), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.048), 41.8px 41.8px 33.4px rgba(0, 0, 0, 0.057), 100px 100px 80px rgba(0, 0, 0, 0.07);
 
+}
+.h-x-40{
+	height: 40rem !important;
+}
 .swiper-wrapper,
 .swiper-container {
 	display: flex;
@@ -228,13 +226,16 @@ label {
 }
 
 .login-container .login-form {
-	width: 50%;
-	box-sizing: border-box;
-	padding: 50px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	flex: 1;
+    width: 50%;
+    box-sizing: border-box;
+    /* padding: 50px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .login-container .login-form .login-form-inner {
@@ -294,7 +295,7 @@ label {
 	margin-bottom: 10px;
 }
 
-.login-container .login-form .login-form-group input {
+/* .login-container .login-form .login-form-group input {
 	padding: 13px 20px;
 	box-sizing: border-box;
 	border: 1px solid var(--grey);
@@ -315,7 +316,7 @@ label {
 	color: var(--placeholder);
 	font-weight: 300;
 	font-size: 14px;
-}
+} */
 
 .login-container .login-form .login-form-group.single-row {
 	flex-direction: row;
@@ -1133,9 +1134,17 @@ td {
 }
 
 .d-reg-wrap {
-	left: 12vw;
-	position: absolute;
-	top: 6vh;
+    height: 92vh;
+    width: 100vw;
+    display: flex;
+    /* left: 12vw; */
+    /* position: absolute; */
+    /* top: 6vh; */
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .d-form-btn {
@@ -1147,7 +1156,8 @@ td {
 	height: auto;
 	width: 100vw;
 	height: 100vh;
-	background: #262626;
+	/* background: #262626; */
+	background: #000;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -1215,8 +1225,12 @@ td {
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
+
 }
 
+.max-d-filter{
+	filter: drop-shadow(0px 0px 2px #00ff0868);
+}
 
 .circles{
 	position: absolute;
@@ -1328,5 +1342,182 @@ td {
 	  border-radius: 50%;
 	}
   
+  }
+  
+  .loader-max {
+	width: 80px;
+	height: 50px;
+	position: relative;
+  }
+  
+  
+  .load-max {
+	background-color: #79ff80;
+	border-radius: 50px;
+	display: block;
+	height: 16px;
+	width: 16px;
+	bottom: 0;
+	position: absolute;
+	transform: translateX(64px);
+	animation: l-m-x 3.5s ease both infinite;
+  }
+  
+  .load-max::before {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	background-color: #c2fff1;
+	border-radius: inherit;
+	animation: l-m-x 3.5s ease both infinite;
+  }
+  
+  
+  @keyframes l-m-x {
+	0% {
+	  width: 16px;
+	  transform: translateX(0px);
+	}
+  
+	40% {
+	  width: 100%;
+	  transform: translateX(0px);
+	}
+  
+	80% {
+	  width: 16px;
+	  transform: translateX(64px);
+	}
+  
+	90% {
+	  width: 100%;
+	  transform: translateX(0px);
+	}
+  
+	100% {
+	  width: 16px;
+	  transform: translateX(0px);
+	}
+  }
+  
+  @keyframes l-m-x {
+	0% {
+	  transform: translateX(0px);
+	  width: 16px;
+	}
+  
+	40% {
+	  transform: translateX(0%);
+	  width: 80%;
+	}
+  
+	80% {
+	  width: 100%;
+	  transform: translateX(0px);
+	}
+  
+	90% {
+	  width: 80%;
+	  transform: translateX(15px);
+	}
+  
+	100% {
+	  transform: translateX(0px);
+	  width: 16px;
+	}
+  }
+   
+  .textInputWrapper {
+	position: relative;
+	width: 100;
+	margin: 12px 5px;
+	--accent-color: #a3e583;
+  }
+  
+  .textInputWrapper:before {
+	transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  }
+  
+  .textInputWrapper:before,
+  .textInputWrapper:after {
+	content: "";
+	left: 0;
+	right: 0;
+	position: absolute;
+	pointer-events: none;
+	bottom: -1px;
+	z-index: 4;
+	width: 100%;
+  }
+  
+  .textInputWrapper:focus-within:before {
+	border-bottom: 1px solid var(--accent-color);
+  }
+  
+  .textInputWrapper:before {
+	transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  }
+  
+  .textInputWrapper:focus-within:before {
+	border-bottom: 1px solid var(--accent-color);
+	transform: scaleX(1);
+  }
+  
+  .textInputWrapper:focus-within:after {
+	border-bottom: 2px solid var(--accent-color);
+	transform: scaleX(1);
+  }
+  
+  .textInputWrapper:after {
+	content: "";
+	transform: scaleX(0);
+	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+	will-change: transform;
+	border-bottom: 2px solid var(--accent-color);
+	border-bottom-color: var(--accent-color);
+  }
+  
+  .textInput::placeholder {
+	transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+	opacity: 1;
+	user-select: none;
+	color: rgba(255, 255, 255, 0.582);
+  }
+  
+  .textInputWrapper .textInput {
+	border-radius: 5px 5px 0px 0px;
+	box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+	max-height: 36px;
+	background-color: #252525;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 200ms;
+	transition-property: background-color;
+	color: #e8e8e8;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 12px;
+	width: 100%;
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+
+  }
+  
+  .textInputWrapper .textInput:focus,
+  .textInputWrapper .textInput:active {
+	outline: none;
+  }
+  
+  .textInputWrapper:focus-within .textInput,
+  .textInputWrapper .textInput:focus,
+  .textInputWrapper .textInput:active {
+	background-color: #353535;
+  }
+  
+  .textInputWrapper:focus-within .textInput::placeholder {
+	opacity: 0;
   }
   
