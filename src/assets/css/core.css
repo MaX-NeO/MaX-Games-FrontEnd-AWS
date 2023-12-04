@@ -1361,7 +1361,7 @@ td {
 	bottom: 0;
 	position: absolute;
 	transform: translateX(64px);
-	animation: l-m-x 2s ease both infinite;
+	animation: l-m-x 3.5s ease both infinite;
   }
   
   .load-max::before {
@@ -1371,7 +1371,7 @@ td {
 	height: 100%;
 	background-color: #c2fff1;
 	border-radius: inherit;
-	animation: l-m-x 2s ease both infinite;
+	animation: l-m-x 3.5s ease both infinite;
   }
   
   
