@@ -42,9 +42,7 @@ export default function GameViewPage() {
   if (!game) {
     return
     <div>
-      <div className="loader-max">
-        <span className="load-max"></span>
-      </div>
+
     </div>
   }
 
