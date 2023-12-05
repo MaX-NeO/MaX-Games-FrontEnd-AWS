@@ -1,7 +1,6 @@
 import Header from "./components/header";
 import { Routes, Route, Outlet } from 'react-router-dom';
 import { Suspense, lazy } from "react";
-import Loader from "./components/loader";
 
 const Home = lazy(() => loading(2500).then(() => import("./pages/Home")))
 const Games = lazy(() => loading(2500).then(() => import("./pages/Games")))
@@ -17,6 +16,7 @@ const AdminAddgame = lazy(() => loading(2500).then(() => import("./pages/Admin/A
 const AdminEditGame = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminEditgame")))
 const AdminDashboard = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminDashboard")))
 const AdminLogin = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminLogin")))
+const Error404 = lazy(()=> loading(2500).then(()=> import('./pages/Error404')))
 function App() {
   return (
     <>
@@ -31,6 +31,7 @@ function App() {
             <Route exact path="/Register" element={<Register />} />
             <Route exact path="/Game/:id" element={<GameViewPage />} />
             <Route exact path="/Game/categories/:gametype" element={<GameCategories />} />
+            <Route path="*" element={<Error404/>}/>
 
             {/* User Auth routes */}
             <Route exact path="/dashboard/games" element={<Dashboard />} />
