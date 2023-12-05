@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminNav from './Nav/AdminNav';
+import AdminNav from './Layout/AdminLeftbar';
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { GameView, GameUpdate } from "../../services/api";

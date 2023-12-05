@@ -16,15 +16,22 @@ export default function GameNav() {
     const routegame = () => {
         navigate('/dashboard/games');
     };
-    const routeadd = () =>{
+    const routeadd = () => {
         navigate('/dashboard/games/add')
     }
     return (
         <>
             <div className='game-sidenav'>
                 <div className='game-nav-container'>
-                    <button className='game-nav-button' onClick={routegame}>
+                    {/* <button className='game-nav-button' onClick={routegame}>
                         View Games
+                    </button> */}
+                    <button className="button-m-x mb-1" onClick={routegame}>
+                        <span>View Games</span>
+                        <div className="top green"></div>
+                        <div className="left green"></div>
+                        <div className="bottom green"></div>
+                        <div className="right green"></div>
                     </button>
                     <button className='game-nav-button' onClick={routeadd}>Add Game</button>
                     <button className='game-nav-logout-button' onClick={userlogout}>

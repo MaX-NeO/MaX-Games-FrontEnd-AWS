@@ -1,5 +1,5 @@
 import React from 'react'
-import GameNav from './Nav/Gamenav'
+import GameNav from './Layout/UserLeftbar'
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { GameView, GameUpdate } from "../../services/api";

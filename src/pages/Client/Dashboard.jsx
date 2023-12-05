@@ -1,4 +1,4 @@
-import GameNav from "./Nav/Gamenav";
+import GameNav from "./Layout/UserLeftbar";
 import { useEffect, useState } from "react";
 import { GameDelete, userGamesx } from "../../services/api";
 import { Link } from "react-router-dom";

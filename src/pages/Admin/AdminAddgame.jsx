@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GameAdd } from '../../services/api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AdminNav from './Nav/AdminNav';
+import AdminNav from './Layout/AdminLeftbar';
 export default function AdminAddgame() {
   const navigate = useNavigate();
   const [game, setGame] = useState({
