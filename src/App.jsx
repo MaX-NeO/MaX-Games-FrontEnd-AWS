@@ -17,14 +17,15 @@ const AdminAddgame = lazy(() => loading(2500).then(() => import("./pages/Admin/A
 const AdminEditGame = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminEditgame")))
 const AdminDashboard = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminDashboard")))
 const AdminLogin = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminLogin")))
-const Error404 = lazy(()=> loading(2500).then(()=> import('./pages/Error404')))
+const Error404 = lazy(() => loading(2500).then(() => import('./pages/Error404')))
 function App() {
   return (
     <>
       <div className="Appx">
-        <Header />
         <Suspense fallback={<Loader />}>
+            <Header />
           <Routes>
+            {/* <Route element={<Header />}> */}
             <Route exact path="/" element={<Home />} />
             <Route exact path="/Games" element={<Games />} />
             <Route exact path="/Events" element={<Events />} />
@@ -32,8 +33,8 @@ function App() {
             <Route exact path="/Register" element={<Register />} />
             <Route exact path="/Game/:id" element={<GameViewPage />} />
             <Route exact path="/Game/categories/:gametype" element={<GameCategories />} />
-            <Route path="*" element={<Error404/>}/>
-
+            <Route path="*" element={<Error404 />} />
+            {/* </Route> */}
             {/* User Auth routes */}
             <Route exact path="/dashboard/games" element={<Dashboard />} />
             <Route exact path="/dashboard/games/add" element={<Addgame />} />

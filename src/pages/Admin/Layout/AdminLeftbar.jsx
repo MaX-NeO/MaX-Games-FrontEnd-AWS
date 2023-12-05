@@ -7,9 +7,9 @@ export default function AdminNav() {
     const navigate = useNavigate();
     useEffect(() => {
         if (!isLoggedIn) {
-          navigate('/Admin/login');
+            navigate('/Admin/login');
         }
-      }, [isLoggedIn, navigate]);
+    }, [isLoggedIn, navigate]);
 
     const userlogout = () => {
         if (isLoggedIn) {
@@ -24,21 +24,35 @@ export default function AdminNav() {
     const routegame = () => {
         navigate('/Admin/dashboard');
     };
-    const routeadd = () =>{
+    const routeadd = () => {
         navigate('/Admin/games/add')
     }
     return (
         <>
             <div className='game-sidenav'>
                 <div className='game-nav-container'>
-                    <button className='game-nav-button' onClick={routegame}>
-                        View Games
+                    <button className="button-m-x mb-1 layout-nav" onClick={routegame}>
+                        <span>View Games</span>
+                        <div className="top green"></div>
+                        <div className="left green"></div>
+                        <div className="bottom green"></div>
+                        <div className="right green"></div>
                     </button>
-                    <button className='game-nav-button' onClick={routeadd}>Add Game</button>
-                    <button className='game-nav-logout-button' onClick={userlogout}>
-                        Logout
+                    <button className="button-m-x mb-1 layout-nav" onClick={routeadd}>
+                        <span>Add Game</span>
+                        <div className="top green"></div>
+                        <div className="left green"></div>
+                        <div className="bottom green"></div>
+                        <div className="right green"></div>
                     </button>
                 </div>
+                <button className="button-m-x game-nav-logout-button  layout-nav" onClick={userlogout}>
+                    <span>Logout</span>
+                    <div className="top red"></div>
+                    <div className="left red"></div>
+                    <div className="bottom red"></div>
+                    <div className="right red"></div>
+                </button>
             </div>
         </>
     );
