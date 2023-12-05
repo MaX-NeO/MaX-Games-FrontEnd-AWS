@@ -33,10 +33,24 @@ export default function GameNav() {
                         <div className="bottom green"></div>
                         <div className="right green"></div>
                     </button>
-                    <button className='game-nav-button' onClick={routeadd}>Add Game</button>
-                    <button className='game-nav-logout-button' onClick={userlogout}>
-                        Logout
+                    <button className="button-m-x mb-1" onClick={routeadd}>
+                        <span>Add Game</span>
+                        <div className="top green"></div>
+                        <div className="left green"></div>
+                        <div className="bottom green"></div>
+                        <div className="right green"></div>
                     </button>
+                    <button className="button-m-x mb-1 game-nav-logout-button" onClick={userlogout}>
+                        <span>Logout</span>
+                        <div className="top red"></div>
+                        <div className="left red"></div>
+                        <div className="bottom red"></div>
+                        <div className="right red"></div>
+                    </button>
+                    {/* <button className='game-nav-button' onClick={routeadd}>Add Game</button> */}
+                    {/* <button className='game-nav-logout-button' onClick={userlogout}>
+                        Logout
+                    </button> */}
                 </div>
             </div>
         </>

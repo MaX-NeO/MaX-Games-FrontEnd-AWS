@@ -959,7 +959,7 @@ label {
 
 .game-nav-logout-button {
 	position: absolute;
-	position: absolute;
+	/* position: absolute;
 	border: 1px solid #ff0127;
 	padding: 1rem;
 	margin: 0.5rem;
@@ -967,9 +967,9 @@ label {
 	background-color: #000;
 	color: #fff;
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 600; */
 	bottom: 0.3rem;
-	transition: 0.2s ease-in;
+	/* transition: 0.2s ease-in; */
 }
 
 .game-nav-logout-button:hover {
