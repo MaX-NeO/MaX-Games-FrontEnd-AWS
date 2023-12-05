@@ -1,6 +1,7 @@
 import Header from "./components/header";
 import { Routes, Route, Outlet } from 'react-router-dom';
 import { Suspense, lazy } from "react";
+import Loader from "./components/loader";
 
 const Home = lazy(() => loading(2500).then(() => import("./pages/Home")))
 const Games = lazy(() => loading(2500).then(() => import("./pages/Games")))
