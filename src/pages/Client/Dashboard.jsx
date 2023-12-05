@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
-
+import { Settings,XCircle } from "lucide-react";
 export default function Dashboard() {
     const [gamesx, setGamesx] = useState([]);
     const uidx = Cookies.get('Useridx');
@@ -84,13 +84,13 @@ export default function Dashboard() {
                                                 <td>
                                                     <Link to={`/dashboard/games/edit/${game.id}`}>
                                                         <button className="game-x-edit-btn">
-                                                            <span className="material-symbols-outlined">edit</span>
+                                                            <span><Settings size={28} /></span>
                                                         </button>
                                                     </Link>
                                                     <button
                                                         className="game-x-delete-btn"
                                                         onClick={() => handleDeleteGame(game.id, game.gamename)}>
-                                                        <span className="material-symbols-outlined">delete</span>
+                                                        <span><XCircle size={28} /></span>
                                                     </button>
                                                 </td>
                                             </tr>

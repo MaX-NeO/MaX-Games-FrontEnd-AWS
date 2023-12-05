@@ -10,6 +10,7 @@ import Logo from '../assets/img/logo.png';
 // import Signinwebp from '../assets/img/signup.webp'
 export default function Login() {
     const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [signin, setSignin] = useState({
         username: '',
@@ -20,51 +21,85 @@ export default function Login() {
         setSignin({ ...signin, [e.target.id]: e.target.value });
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await SignIn(signin.username, signin.password);
-        if (res.data === "Login Successful !") {
-            const userData = await UserData(signin.username);
-            const userId = userData.data.id;
-            Cookies.set('Usernamex', signin.username);
-            Cookies.set('Useridx', userId);
-            Cookies.set('isLoggedIn', 'true');
-            toast.success('Login Successful !', {
-                position: "bottom-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-            setTimeout(() => {
-                navigate('/dashboard/games');
-            }, 1500);
+        const toaster = toast.loading("Please wait...", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            isLoading: false
+        })
 
-        } else if (res.data === "Invalid Password") {
-            toast.error('Invalid password!', {
-                position: "bottom-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-        } else {
-            toast.error('Invalid Username!', {
-                position: "bottom-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
+
+        try {
+            const res = await SignIn(signin.username, signin.password);
+
+            if (res.data === "Login Successful !") {
+                const userData = await UserData(signin.username);
+                const userId = userData.data.id;
+                Cookies.set('Usernamex', signin.username);
+                Cookies.set('Useridx', userId);
+                Cookies.set('isLoggedIn', 'true');
+
+                toast.update(toaster, { render: "Login Successful !", type: "success", isLoading: false });
+
+                // toast.success('Login Successful !', {
+                //     position: "bottom-right",
+                //     autoClose: 1000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                //     theme: "dark",
+                // });
+                setTimeout(() => {
+                    navigate('/dashboard/games');
+                }, 1500);
+            } else if (res.data === "Invalid Password") {
+                toast.update(toaster, { render: "Invalid Password!", type: "error", isLoading: false });
+                //     toast.error('Invalid password!', {
+                    //     position: "bottom-right",
+                    //     autoClose: 3000,
+                    //     hideProgressBar: false,
+                    //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                //     theme: "dark",
+                // });
+            } else {
+                toast.update(toaster, { render: "Invalid Username!", type: "error", isLoading: false });
+                // toast.error('Invalid Username!', {
+                //     position: "bottom-right",
+                //     autoClose: 3000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: true,
+                //     draggable: true,
+                //     progress: undefined,
+                //     theme: "dark",
+                // });
+            }
+        } catch (error) {
+            toast.update(toaster, { render: "Error! Try again later", type: "error", isLoading: false });
+            console.error('An error occurred:', error);
+            // await toast.error('An error occurred. Please try again.', {
+            //     position: "bottom-right",
+            //     autoClose: 3000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "dark",
+            // });
         }
     };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/css/Slide.css';
 import { GameCover } from '../services/api';
-
+import { Gamepad2 } from 'lucide-react';
 const Slide = () => {
     const [gameCovers, setGameCovers] = useState([]);
     const [activeOption, setActiveOption] = useState(0);
@@ -54,8 +54,8 @@ const Option = ({ GameCoverImg, onClick, className }) => (
         <div className="shadow"></div>
         <div className="label">
             <div className="icon">
-                <span className="material-symbols-outlined">
-                    sports_esports
+                <span>
+                <Gamepad2 size={24} />  
                 </span>
             </div>
         </div>

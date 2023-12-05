@@ -71,7 +71,7 @@ export default function Addgame() {
         <GameNav />
         <div className='game-actions'>
           <h1 className="game-page-title">Add Games </h1>
-          <div className="data-x-game-container">
+          <div className="data-x-game-container ">
             <form onSubmit={handleSubmit} className='input-group'>
               <label>
                 Game Name :

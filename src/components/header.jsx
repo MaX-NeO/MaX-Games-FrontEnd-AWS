@@ -2,7 +2,7 @@ import React, { useState,useEffect, Suspense } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Logo from '../assets/img/logo.png';
 import Cookies from 'js-cookie';
-
+import { Home,Gamepad2,Swords,CircleUserRound,Power } from 'lucide-react';
 export default function Header() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,13 +53,11 @@ export default function Header() {
           <input id="tab-3" type="radio" name="group" onClick={revents}/>
           <input id="tab-4" type="radio" name="group" onClick={rlogin}/>
           <div className="buttons">
-            <label className="material-symbols-outlined" htmlFor="tab-1"> home </label>
-            <label className="material-symbols-outlined" htmlFor="tab-2"> sports_esports </label>
-            <label className="material-symbols-outlined" htmlFor="tab-3">
-              gamepad
-            </label>
-            <label className="material-symbols-outlined" htmlFor="tab-4">
-              {isLoggedIn ? 'power_settings_new' : 'account_circle'}
+            <label htmlFor="tab-1"> <Home size={28} /> </label>
+            <label  htmlFor="tab-2"> <Gamepad2 size={28} /></label>
+            <label  htmlFor="tab-3"> <Swords size={28} /> </label>
+            <label  htmlFor="tab-4">
+              {isLoggedIn ? <Power size={28} /> : <CircleUserRound size={28} />}
             </label>
             <div className="underline" />
           </div>
