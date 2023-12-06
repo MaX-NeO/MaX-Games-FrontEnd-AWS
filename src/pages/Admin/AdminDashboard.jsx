@@ -52,7 +52,6 @@ export default function AdminDashboard() {
             <AdminNav />
             <div className='game-actions'>
                 <h1 className="game-page-title">Games Dashboard</h1>
-
                 <div className='game-x-data'>
                     <div>
                         <div className="tbl-header">

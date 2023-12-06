@@ -1,10 +1,12 @@
-import React, { useState,useEffect, Suspense } from 'react';
+import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Logo from '../assets/img/logo.png';
-import { Home,Gamepad2,Swords,CircleUserRound,Power } from 'lucide-react';
+import { Home, Gamepad2, Swords, CircleUserRound, Power } from 'lucide-react';
+
 export default function Header() {
   const navigate = useNavigate();
-  let AuthCheck = localStorage.getItem('isLoggedIn')
+  const AuthCheck = localStorage.getItem('isLoggedIn');
+
   const rlogin = () => {
     if (AuthCheck) {
       navigate('/dashboard/games');
@@ -12,9 +14,7 @@ export default function Header() {
       navigate('/login');
     }
   };
-  useEffect(() => {
-    rlogin();
-  }, []);
+
   const rhome = () => {
     navigate('/');
   };
@@ -26,6 +26,7 @@ export default function Header() {
   const revents = () => {
     navigate('/Events');
   };
+
   return (
     <>
       <nav className="navbar">
@@ -36,19 +37,18 @@ export default function Header() {
           <input id="tab-1" type="radio" name="group" onClick={rhome}/>
           <input id="tab-2" type="radio" name="group" onClick={rgames} />
           <input id="tab-3" type="radio" name="group" onClick={revents}/>
-          <input id="tab-4" type="radio" name="group" onClick={rlogin}/>
+          <input id="tab-4" type="radio" name="group" onClick={rlogin} />
           <div className="buttons">
             <label htmlFor="tab-1"> <Home size={28} /> </label>
-            <label  htmlFor="tab-2"> <Gamepad2 size={28} /></label>
-            <label  htmlFor="tab-3"> <Swords size={28} /> </label>
-            <label  htmlFor="tab-4">
+            <label htmlFor="tab-2"> <Gamepad2 size={28} /></label>
+            <label htmlFor="tab-3"> <Swords size={28} /> </label>
+            <label htmlFor="tab-4">
               {AuthCheck ? <Power size={28} /> : <CircleUserRound size={28} />}
             </label>
             <div className="underline" />
           </div>
         </div>
       </nav>
-
     </>
   );
 }
