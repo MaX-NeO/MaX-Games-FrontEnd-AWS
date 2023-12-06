@@ -13,7 +13,6 @@ export default function Loader() {
                     <defs>
                         <g id="hole">
                             <path>
-                                {/* BASIC SHAPE; WILL BE COPIED AND ROTATED 4 TIMES */}
                                 <animate attributeName="d" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 0.143; 0.286; 0.429; 0.572; 0.715; 0.858; 1" keySplines="0.1 0.42 0.89 0.09; 1 0.14 0.26 0.65; 0.1 0.42 0.89 0.09; 1 0.14 0.26 0.65; 0.1 0.42 0.89 0.09; 1 0.14 0.26 0.65; 0.1 0.42 0.89 0.09" values="M10 10 L110 10 L110 110 L10 110Z;
 						M10 10 L110 10 L110 210 L10 210Z;
 						M10 110 L110 110 L110 210 L10 210Z;
@@ -22,7 +21,6 @@ export default function Loader() {
 						M-110 10 L-10 10 L-10 210 L-110 210Z;
 						M-110 10 L-10 10 L-10 110 L-110 110Z;
 						M-110 10 L-10 10 L-10 110 L-110 110Z" />
-                                {/* FAKE ILLUMINATION CHANGES */}
                                 <animate attributeName="opacity" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0; 0.143; 0.286; 0.429; 0.572; 0.715; 0.858; 1" keySplines="0.1 0.42 0.89 0.09; 1 0.14 0.26 0.65; 0.1 0.42 0.89 0.09; 1 0.14 0.26 0.65; 0.1 0.42 0.89 0.09; 1 0.14 0.26 0.65; 0.1 0.42 0.89 0.09" values="0.9; 0.7; 0.9; 0.7; 0.9; 0.7; 0.7; 0.9" />
                             </path>
                         </g>

@@ -43,7 +43,7 @@ export default function Header() {
             <label htmlFor="tab-2"> <Gamepad2 size={28} /></label>
             <label htmlFor="tab-3"> <Swords size={28} /> </label>
             <label htmlFor="tab-4">
-              {AuthCheck ? <Power size={28} /> : <CircleUserRound size={28} />}
+              {AuthCheck ? <Power size={28} color="#ff0000" strokeWidth={2.5} /> : <CircleUserRound size={28} />}
             </label>
             <div className="underline" />
           </div>

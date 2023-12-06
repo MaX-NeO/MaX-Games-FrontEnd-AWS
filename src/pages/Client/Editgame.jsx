@@ -9,7 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function EditGame() {
     const { id } = useParams();
     const navigate = useNavigate();
-
     const [game, setGame] = useState({
         gamename: "",
         releaseyear: 0,
@@ -23,11 +22,9 @@ export default function EditGame() {
         coverurl2: "",
         coverurl3: "",
     });
-
     useEffect(() => {
         loadGame();
     }, []);
-
     const loadGame = async () => {
         try {
             const res = await GameView(id);
@@ -36,7 +33,6 @@ export default function EditGame() {
             console.err("Failed to load game:", err);
         }
     };
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setGame((prevGame) => ({
@@ -44,7 +40,6 @@ export default function EditGame() {
             [name]: value,
         }));
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -62,7 +57,6 @@ export default function EditGame() {
             setTimeout(() => {
                 navigate("/dashboard/games");
             }, 1500);
-
         } catch (err) {
             console.error("Failed to update game:", err);
         }
@@ -120,7 +114,6 @@ export default function EditGame() {
                             Cover URL 3 :
                             <input type="text" name="coverurl3" value={game.coverurl3} onChange={handleChange} />
                         </label>
-
                         <button type="submit" className='game-nav-button'>Update</button>
                     </form>
                 </div>
@@ -136,8 +129,7 @@ export default function EditGame() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="dark"
-            />
+                theme="dark"/>
         </div>
     );
 }

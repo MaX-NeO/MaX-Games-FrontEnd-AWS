@@ -16,7 +16,6 @@ const GameCategories = () => {
         console.error(error);
       }
     };
-
     fetchData();
   }, [gametype]);
 

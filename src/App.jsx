@@ -14,6 +14,7 @@ const GameViewPage = lazy(() => loading(2500).then(() => import("./pages/Game"))
 const GameCategories = lazy(() => loading(2500).then(() => import("./pages/GameCategories")))
 const AdminLogin = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminLogin")))
 const Dashboard = lazy(() => import("./pages/Client/Dashboard"))
+const Mygames = lazy(() => import("./pages/Client/MyGames"))
 const Addgame = lazy(() => import("./pages/Client/Addgame"))
 const Editgame = lazy(() => import("./pages/Client/Editgame"))
 const AdminAddgame = lazy(() => import("./pages/Admin/AdminAddgame"))
@@ -36,12 +37,12 @@ function App() {
             <Route exact path="/Register" element={<Register />} />
             {/* User Auth routes */}
             <Route element={<UserAuth/>}>
-            <Route exact path="/dashboard/games" element={<Dashboard />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
+            <Route exact path="/dashboard/games" element={<Mygames />} />
             <Route exact path="/dashboard/games/add" element={<Addgame />} />
             <Route exact path="/dashboard/games/edit/:id" element={<Editgame />} />
             </Route>
             {/* Admin Auth routes */}
-            
             <Route exact path="/Admin/Login" element={<AdminLogin />} />
             <Route element={<AdminAuth/>}>
             <Route exact path="/Admin/dashboard" element={<AdminDashboard />} />

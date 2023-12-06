@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 export default function Games() {
   const [gamesx, setGamesx] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     Gamesx().then((res) => {
       setGamesx(res.data);

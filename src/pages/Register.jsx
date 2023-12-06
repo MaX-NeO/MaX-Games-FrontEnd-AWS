@@ -5,6 +5,7 @@ import { SignUp } from '../services/api'
 import Logo from '../assets/img/logo.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 export default function Register() {
   const navigate = useNavigate();
   const [signup, setSignup] = useState({
@@ -14,17 +15,12 @@ export default function Register() {
     phone: '',
     age: ''
   })
-
-
   const handleChange = (e) => {
     setSignup({ ...signup, [e.target.id]: e.target.value })
   }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const res = await SignUp(signup.username, signup.password, signup.email, signup.phone, signup.age);
-    // console.log(res);
     if (res.data === "Signup Successful !") {
       toast.success('Signup Successful !', {
         position: "bottom-right",
@@ -66,9 +62,7 @@ export default function Register() {
                   <path d="m155.109 74.028a4 4 0 0 0 -3.48-2.028h-52.4l8.785-67.123a4.023 4.023 0 0 0 -7.373-2.614l-63.724 111.642a4 4 0 0 0 3.407 6.095h51.617l-6.962 67.224a4.024 4.024 0 0 0 7.411 2.461l62.671-111.63a4 4 0 0 0 .048-4.027z" />
                 </svg></div>
                 <h1 className="logtext">Register</h1>
-
                 <form onSubmit={handleSubmit}>
-
                   <div className="login-form-group textInputWrapper">
                     <input type="text" placeholder="Username" id="username" value={signup.username} onChange={handleChange} required className='textInput' />
                   </div>
@@ -91,7 +85,6 @@ export default function Register() {
                     <div className="bottom green"></div>
                     <div className="right green"></div>
                   </button>
-
                 </form>
                 <div className="register-div">Goback ? <Link to="/login" className="link create-account" > Login </Link></div>
               </div>
@@ -112,7 +105,6 @@ export default function Register() {
                 <div className="swiper-pagination" />
               </div>
             </div>
-
             <ToastContainer
               position="top-right"
               autoClose={3000}
@@ -123,8 +115,7 @@ export default function Register() {
               pauseOnFocusLoss
               draggable
               pauseOnHover
-              theme="dark"
-            />
+              theme="dark"/>
 
           </div>
         </div>

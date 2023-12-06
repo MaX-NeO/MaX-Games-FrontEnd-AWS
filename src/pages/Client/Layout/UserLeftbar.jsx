@@ -1,22 +1,17 @@
-// import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Cookies from 'js-cookie';
 
 export default function GameNav() {
-    // const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
     const navigate = useNavigate();
-
-
     const userlogout = () => {
-
         localStorage.clear();
-        // setIsLoggedIn(false);
         navigate('/login');
-    };
-
+    }
+    const routedashboard = () => {
+        navigate('/dashboard');
+    }
     const routegame = () => {
         navigate('/dashboard/games');
-    };
+    }
     const routeadd = () => {
         navigate('/dashboard/games/add')
     }
@@ -24,8 +19,15 @@ export default function GameNav() {
         <>
             <div className='game-sidenav'>
                 <div className='game-nav-container'>
+                    <button className="button-m-x mb-1 layout-nav" onClick={routedashboard}>
+                        <span>Dashboard</span>
+                        <div className="top green"></div>
+                        <div className="left green"></div>
+                        <div className="bottom green"></div>
+                        <div className="right green"></div>
+                    </button>
                     <button className="button-m-x mb-1 layout-nav" onClick={routegame}>
-                        <span>View Games</span>
+                        <span>My Games</span>
                         <div className="top green"></div>
                         <div className="left green"></div>
                         <div className="bottom green"></div>

@@ -1,6 +1,3 @@
-import React from 'react'
-// import { useState } from 'react';
-// import Cookies from 'js-cookie';
 import imgE1 from '../assets/img/events/event1.jpg';
 import imgE2 from '../assets/img/events/event2.jpg';
 import imgE3 from '../assets/img/events/event3.jpg';
@@ -8,7 +5,6 @@ import imgE4 from '../assets/img/events/event4.jpg';
 
 export default function Events() {
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
   const Authcheck = localStorage.getItem('isUser');
   return (
     <>
@@ -39,7 +35,6 @@ export default function Events() {
             </div>
           </div>
           <div className='event-x-card'>
-
             <div className='event-x-card-data'>
               <div className='event-x-card-title'>
                 <h1>
@@ -56,7 +51,6 @@ export default function Events() {
               <img src={imgE2} alt='event-img' className='event-x-img' />
             </div>
           </div>
-
           <div className='event-x-card'>
             <div className='event-x-card-data'>
               <div className='event-x-card-title'>
@@ -74,9 +68,7 @@ export default function Events() {
               <img src={imgE3} alt='event-img' className='event-x-img' />
             </div>
           </div>
-
           <div className='event-x-card'>
-
             <div className='event-x-card-data'>
               <div className='event-x-card-title'>
                 <h1>
@@ -94,8 +86,6 @@ export default function Events() {
             </div>
           </div>
         </div>
-
-
         <ul className="circles">
           <li></li>
           <li></li>
@@ -111,5 +101,4 @@ export default function Events() {
       </div>
     </>
   )
-
 }

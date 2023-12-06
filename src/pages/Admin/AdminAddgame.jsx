@@ -112,7 +112,6 @@ export default function AdminAddgame() {
                 Cover URL 3 :
                 <input type="text" name="coverurl3" value={game.coverurl3} onChange={handleChange} required />
               </label>
-
               <button type="submit" className='game-nav-button'>Save</button>
             </form>
           </div>

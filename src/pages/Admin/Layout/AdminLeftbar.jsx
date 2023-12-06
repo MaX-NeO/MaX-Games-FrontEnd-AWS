@@ -1,22 +1,18 @@
-// import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import Cookies from 'js-cookie';
 
 export default function AdminNav() {
-    // const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isAdmin') === 'true');
     const navigate = useNavigate();
-
     const adminlogout = () => {
             localStorage.clear();
             navigate('/Admin/login');
     };
-
     const routegame = () => {
         navigate('/Admin/dashboard');
     };
     const routeadd = () => {
         navigate('/Admin/games/add')
     }
+
     return (
         <>
             <div className='game-sidenav'>

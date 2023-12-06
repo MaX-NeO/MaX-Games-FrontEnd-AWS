@@ -1,53 +1,60 @@
-import AdminNav from "./Layout/AdminLeftbar";
+import GameNav from "./Layout/UserLeftbar";
 import { useEffect, useState } from "react";
-import { Gamesx, GameDelete } from "../../services/api";
+import { GameDelete, userGamesx } from "../../services/api";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Settings, XCircle } from "lucide-react";
 
-export default function AdminDashboard() {
+export default function Dashboard() {
     const [gamesx, setGamesx] = useState([]);
+    const uidx = localStorage.getItem('Useridx');
     useEffect(() => {
         loadGames();
     }, []);
     const loadGames = () => {
-        Gamesx().then((res) => {
-            setGamesx(res.data);
-        });
+        userGamesx(uidx)
+            .then((res) => {
+                setGamesx(res.data);
+            })
+            .catch((error) => {
+                console.error("Failed to load games:", error);
+            });
     };
     const handleDeleteGame = (gameId, gameName) => {
-        GameDelete(gameId).then(() => {
-            loadGames();
-            toast.success(`${gameName} Deleted !`, {
-                position: "bottom-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
+        GameDelete(gameId)
+            .then(() => {
+                loadGames();
+                toast.success(`${gameName} Deleted !`, {
+                    position: "bottom-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            })
+            .catch((error) => {
+                console.error("Failed to delete the game:", error);
+                toast.error("Failed to delete the game.", {
+                    position: "bottom-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             });
-        }).catch((error) => {
-            toast.error("Failed to delete the game.", {
-                position: "bottom-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
-        });
     };
-
     return (
         <div className='game-x-main'>
-            <AdminNav />
+            <GameNav />
             <div className='game-actions'>
-                <h1 className="game-page-title">Games Dashboard</h1>
+                <h1 className="game-page-title">My Games</h1>
                 <div className='game-x-data'>
                     <div>
                         <div className="tbl-header">
@@ -83,6 +90,20 @@ export default function AdminDashboard() {
                                                 </td>
                                             </tr>
                                         ))
+                                    ) : gamesx.length == 0 ? (
+                                        <tr>
+                                            <td colSpan={10}>
+                                                <div className="terminal-loader">
+                                                    <div className="terminal-header">
+                                                        <div className="terminal-title">Status</div>
+                                                        <div className="terminal-controls">
+                                                            <div className="control maximize"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="terminal-text">No Games Found .. </div>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     ) : (
                                         <tr>
                                             <td colSpan={6}>
@@ -110,8 +131,7 @@ export default function AdminDashboard() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="dark"
-            />
+                theme="dark" />
         </div>
     );
 }

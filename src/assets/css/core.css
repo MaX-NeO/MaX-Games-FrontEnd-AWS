@@ -29,7 +29,7 @@ body {
 
 :root {
 	--color-primary: #107c10;
-
+	--color-danger: #7c1010;
 	/* login */
 	--bodybg: #000000;
 	/* --primary-color: #5138ee; */
@@ -940,11 +940,11 @@ label {
 
 .game-nav-container {
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: nowrap;
-    height: 92%;
-    align-content: center;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: nowrap;
+	height: 92%;
+	align-content: center;
 	width: 100%;
 }
 
@@ -1668,7 +1668,254 @@ td {
 	align-items: center;
 	justify-content: center;
 }
-.no-size-loader{
+
+.no-size-loader {
 	height: 100% !important;
 	width: 100% !important;
 }
+
+@keyframes blinkCursor {
+	50% {
+		border-right-color: transparent;
+	}
+}
+
+@keyframes typeAndDelete {
+
+	0%,
+	10% {
+		width: 0;
+	}
+
+	45%,
+	55% {
+		width: 13em;
+	}
+
+	/* adjust width based on content */
+	90%,
+	100% {
+		width: 0;
+	}
+}
+
+.terminal-loader {
+	border: 0.1em solid #333;
+	background-color: #1a1a1a;
+	color: #0f0;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 1em;
+	padding: 1.5em 1em;
+	width: 15em;
+	margin: 100px auto;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.terminal-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1.5em;
+	background-color: #333;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	padding: 0 0.4em;
+	box-sizing: border-box;
+}
+
+.terminal-controls {
+	float: right;
+}
+
+.control {
+	display: inline-block;
+	width: 0.6em;
+	height: 0.6em;
+	margin-left: 0.4em;
+	border-radius: 50%;
+	background-color: #777;
+}
+
+
+.control.maximize {
+	background-color: red;
+}
+
+.terminal-title {
+	float: left;
+	line-height: 1.5em;
+	color: #eee;
+}
+
+.terminal-text {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	border-right: 0.2em solid #07bc0c;
+	animation: typeAndDelete 17s steps(17) infinite,
+		blinkCursor 0.5s step-end infinite alternate;
+	margin-top: 1.5em;
+}
+.w-flex-wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+/* .welcome-wrapper{
+
+} */
+.container-welcome {
+	width: auto;
+	/* max-width: 80%;  */
+	height: 50px;
+  }
+  
+  .content-welcome {
+	display: block;
+	position: sticky;
+	overflow: hidden;
+	font-family: 'Lato', sans-serif;
+	font-size: 35px;
+	line-height: 40px;
+	color: #ecf0f1;
+  }
+  
+  .content__container {
+	font-weight: 600;
+	overflow: hidden;
+	height: 40px;
+	padding: 0 30px; 
+	position: relative;
+  }
+  
+  .content__container:before,
+  .content__container:after {
+	content: '[';
+	position: absolute;
+	top: -2px;
+	color: #07bc0c;
+	font-size: 42px;
+	line-height: 40px;
+	animation: opacity 2s infinite;
+  }
+  
+  .content__container:after {
+	content: ']';
+	right: 0;
+  }
+  
+  .content__container__text {
+	display: inline;
+	margin: 0;
+	padding-left: 30px;
+  }
+  
+  .content__container__list {
+	margin-top: 0;
+	padding-left: 170px;
+	text-align: left;
+	list-style: none;
+	animation: change 10s infinite;
+  }
+  
+  .content__container__list__item {
+	line-height: 40px;
+	margin: 0;
+  }
+
+  
+  .x-welcome-container{
+	position: sticky;
+	overflow: hidden;
+  }
+  .x-left-bar:before {
+	content: '[';
+	color: #07bc0c;
+	font-size: 42px;
+	line-height: 40px;
+	animation: opacity 2s infinite;
+  }
+  .x-right-bar:before {
+	content: ']';
+	color: #07bc0c;
+	font-size: 42px;
+	height: 40px;
+	animation: opacity 2s infinite;
+  }
+
+.x-data-content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	width: 100%;
+	gap: 1rem;
+	overflow: hidden;
+	height: 40px;
+	padding: 0 30px; 
+	position: relative;
+}
+.x-data-left{
+	width: 40%;
+	font-size: 35px;
+	line-height: 40px;
+	height: 40px;
+	text-align: left;
+}
+.x-data-right{
+	height: 40px;
+	width: 60%;
+	font-size: 35px;
+	line-height: 40px;
+	list-style: none;
+	animation: change 10s infinite;
+	text-align: left;
+}
+.x-data-r{
+	line-height: 40px;
+	margin: 0;
+}
+
+
+@keyframes opacity {
+	0%, 100% {
+	  opacity: 0;
+	}
+  
+	50% {
+	  opacity: 1;
+	}
+  }
+  
+  @keyframes change {
+	0%, 12.66%, 100% {
+	  transform: translate3d(0, 0, 0);
+	}
+  
+	16.66%, 29.32% {
+	  transform: translate3d(0, 0%, 0);
+	}
+  
+	33.32%, 45.98% {
+	  transform: translate3d(0, -100%, 0);
+	}
+  
+	49.98%, 62.64% {
+	  transform: translate3d(0, -200%, 0);
+	}
+  
+	66.64%, 79.3% {
+	  transform: translate3d(0, -100%, 0);
+	}
+  
+	83.3%, 95.96% {
+	  transform: translate3d(0, -0%, 0);
+	}
+  }
+   

@@ -13,39 +13,29 @@ export default function GameViewPage() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const navigate = useNavigate();
   const handleScroll = () => setScrollPosition(window.pageYOffset);
-
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     const fetchGame = async () => {
       try {
         const { data } = await GameView(id);
         setGame(data);
-
       } catch (error) {
         console.error('Error retrieving game:', error);
-
       }
     };
-
     fetchGame();
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [id]);
-
   if (!game) {
     return
     <div>
-
     </div>
   }
-
   const carouselImages = [
     { image: game.coverurl1 },
     { image: game.coverurl2 },
@@ -62,7 +52,6 @@ export default function GameViewPage() {
       progress: undefined,
       theme: "dark",
     });
-
   }
   const backnavigation = () => {
     navigate(-1);
@@ -86,15 +75,12 @@ export default function GameViewPage() {
             </button>
           </div>
         </div>
-
       </section>
       <section>
-
         <div className='game-btm'>
           <div className='game-desc'>
             <h3 className="subtitle">{game.gamedesc}</h3>
             <div className='game-controls'>
-              {/* <button className='game-back' onClick={backnavigation}>Back</button> */}
               <button className="button-m-x game-back" onClick={backnavigation}>
                 <span>Back</span>
                 <div className="top orange"></div>
@@ -107,9 +93,6 @@ export default function GameViewPage() {
           </div>
           <div className='game-rating'><h3 className="subtitle">{game.gameratings} / 10</h3></div>
         </div>
-
-
-
       </section>
       <section className="container">
         <Carousel images={carouselImages} />
@@ -124,8 +107,7 @@ export default function GameViewPage() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
-      />
+        theme="dark"/>
     </div>
   );
 }

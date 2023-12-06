@@ -4,8 +4,6 @@ import GameNav from './Layout/UserLeftbar';
 import { userGameAdd } from '../../services/api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Cookies from 'js-cookie';
-
 export default function Addgame() {
   const usernameX = localStorage.getItem('Usernamex');
   const navigate = useNavigate();
@@ -22,7 +20,6 @@ export default function Addgame() {
     coverurl2: '',
     coverurl3: '',
   });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     userGameAdd(usernameX, game)
@@ -54,7 +51,6 @@ export default function Addgame() {
         });
       });
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setGame((prevGame) => ({
@@ -115,7 +111,6 @@ export default function Addgame() {
                 Cover URL 3 :
                 <input type="text" name="coverurl3" value={game.coverurl3} onChange={handleChange} required />
               </label>
-
               <button type="submit" className='game-nav-button'>Save</button>
             </form>
           </div>
@@ -131,8 +126,7 @@ export default function Addgame() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
-      />
+        theme="dark"/>
     </>
   )
 }
