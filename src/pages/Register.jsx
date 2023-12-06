@@ -52,18 +52,7 @@ export default function Register() {
       });
     } else {
       console.log(res.data);
-      // toast.error('Invalid Username', {
-      //   position: "bottom-right",
-      //   autoClose: 3000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      //   theme: "dark",
-      // });
     }
-
   }
 
   return (

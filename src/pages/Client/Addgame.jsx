@@ -25,9 +25,8 @@ export default function Addgame() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    userGameAdd(usernameX,game)
+    userGameAdd(usernameX, game)
       .then((res) => {
-        // toast.success
         toast.success('Game Added !', {
           position: "bottom-right",
           autoClose: 1000,
@@ -43,7 +42,6 @@ export default function Addgame() {
         }, 1500);
       })
       .catch((err) => {
-        // toast.Error
         toast.error('Failed to add Game !', {
           position: "bottom-right",
           autoClose: 1000,

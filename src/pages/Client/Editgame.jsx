@@ -49,7 +49,6 @@ export default function EditGame() {
         e.preventDefault();
         try {
             await GameUpdate(id, game);
-            // toast.info
             toast.info('Game Update !', {
                 position: "bottom-right",
                 autoClose: 1000,

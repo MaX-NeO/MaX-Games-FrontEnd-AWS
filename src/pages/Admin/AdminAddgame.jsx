@@ -24,7 +24,6 @@ export default function AdminAddgame() {
     e.preventDefault();
     GameAdd(game)
       .then((res) => {
-        // toast.success
         toast.success('Game Added !', {
           position: "bottom-right",
           autoClose: 1000,
@@ -40,7 +39,6 @@ export default function AdminAddgame() {
         }, 1500);
       })
       .catch((err) => {
-        // toast.Error
         toast.error('Failed to add Game !', {
           position: "bottom-right",
           autoClose: 1000,
@@ -65,7 +63,7 @@ export default function AdminAddgame() {
   return (
     <>
       <div className='game-x-main'>
-        <AdminNav/>
+        <AdminNav />
         <div className='game-actions'>
           <h1 className="game-page-title">Add Games </h1>
           <div className="data-x-game-container">

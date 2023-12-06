@@ -10,12 +10,12 @@ const Login = lazy(() => loading(2500).then(() => import("./pages/Login")))
 const Register = lazy(() => loading(2500).then(() => import("./pages/Register")))
 const GameViewPage = lazy(() => loading(2500).then(() => import("./pages/Game")))
 const GameCategories = lazy(() => loading(2500).then(() => import("./pages/GameCategories")))
-const AdminLogin = lazy(() =>  loading(2500).then(() => import("./pages/Admin/AdminLogin")))
-const Dashboard = lazy(() =>  import("./pages/Client/Dashboard"))
-const Addgame = lazy(() =>  import("./pages/Client/Addgame"))
-const Editgame = lazy(() =>  import("./pages/Client/Editgame"))
-const AdminAddgame = lazy(() =>  import("./pages/Admin/AdminAddgame"))
-const AdminEditGame = lazy(() =>  import("./pages/Admin/AdminEditgame"))
+const AdminLogin = lazy(() => loading(2500).then(() => import("./pages/Admin/AdminLogin")))
+const Dashboard = lazy(() => import("./pages/Client/Dashboard"))
+const Addgame = lazy(() => import("./pages/Client/Addgame"))
+const Editgame = lazy(() => import("./pages/Client/Editgame"))
+const AdminAddgame = lazy(() => import("./pages/Admin/AdminAddgame"))
+const AdminEditGame = lazy(() => import("./pages/Admin/AdminEditgame"))
 const AdminDashboard = lazy(() => import("./pages/Admin/AdminDashboard"))
 const Error404 = lazy(() => import('./pages/Error404'))
 function App() {
@@ -23,9 +23,8 @@ function App() {
     <>
       <div className="Appx">
         <Suspense fallback={<Loader />}>
-            <Header />
+          <Header />
           <Routes>
-            {/* <Route element={<Header />}> */}
             <Route exact path="/" element={<Home />} />
             <Route exact path="/Games" element={<Games />} />
             <Route exact path="/Events" element={<Events />} />
@@ -34,7 +33,6 @@ function App() {
             <Route exact path="/Game/:id" element={<GameViewPage />} />
             <Route exact path="/Game/categories/:gametype" element={<GameCategories />} />
             <Route path="*" element={<Error404 />} />
-            {/* </Route> */}
             {/* User Auth routes */}
             <Route exact path="/dashboard/games" element={<Dashboard />} />
             <Route exact path="/dashboard/games/add" element={<Addgame />} />

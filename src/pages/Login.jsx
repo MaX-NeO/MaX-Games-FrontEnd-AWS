@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import Dashboard from './Client/Dashboard';
 import Logo from '../assets/img/logo.png';
-// import Signinwebp from '../assets/img/signup.webp'
 export default function Login() {
     const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
     const [loading, setLoading] = useState(false);
@@ -49,57 +48,20 @@ export default function Login() {
 
                 toast.update(toaster, { render: "Login Successful !", type: "success", isLoading: false });
 
-                // toast.success('Login Successful !', {
-                //     position: "bottom-right",
-                //     autoClose: 1000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: true,
-                //     draggable: true,
-                //     progress: undefined,
-                //     theme: "dark",
-                // });
                 setTimeout(() => {
                     navigate('/dashboard/games');
                 }, 1500);
             } else if (res.data === "Invalid Password") {
                 toast.update(toaster, { render: "Invalid Password!", type: "error", isLoading: false });
-                //     toast.error('Invalid password!', {
-                    //     position: "bottom-right",
-                    //     autoClose: 3000,
-                    //     hideProgressBar: false,
-                    //     closeOnClick: true,
-                //     pauseOnHover: true,
-                //     draggable: true,
-                //     progress: undefined,
-                //     theme: "dark",
-                // });
+
             } else {
                 toast.update(toaster, { render: "Invalid Username!", type: "error", isLoading: false });
-                // toast.error('Invalid Username!', {
-                //     position: "bottom-right",
-                //     autoClose: 3000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: true,
-                //     draggable: true,
-                //     progress: undefined,
-                //     theme: "dark",
-                // });
+
             }
         } catch (error) {
             toast.update(toaster, { render: "Error! Try again later", type: "error", isLoading: false });
             console.error('An error occurred:', error);
-            // await toast.error('An error occurred. Please try again.', {
-            //     position: "bottom-right",
-            //     autoClose: 3000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: true,
-            //     draggable: true,
-            //     progress: undefined,
-            //     theme: "dark",
-            // });
+
         }
     };
 
