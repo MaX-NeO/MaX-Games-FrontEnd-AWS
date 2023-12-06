@@ -15,6 +15,7 @@ export default function AdminNav() {
         if (isLoggedIn) {
             navigate('/Admin/login');
             Cookies.remove('isAdmin');
+            Cookies.remove('Usernamez');
             setIsLoggedIn(false);
         } else {
             navigate('/Admin/login');

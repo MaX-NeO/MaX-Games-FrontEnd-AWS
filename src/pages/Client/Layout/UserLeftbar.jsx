@@ -9,6 +9,7 @@ export default function GameNav() {
 
     const userlogout = () => {
         Cookies.remove('isLoggedIn');
+        Cookies.remove('Usernamex');
         setIsLoggedIn(false);
         navigate('/login');
     };

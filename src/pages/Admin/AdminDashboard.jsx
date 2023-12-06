@@ -69,22 +69,36 @@ export default function AdminDashboard() {
                         <div className="tbl-content">
                             <table cellPadding={0} cellSpacing={0} border={0}>
                                 <tbody>
-                                    {gamesx.map((game) => (
-                                        <tr key={game.id}>
-                                            <td>{game.gamename}</td>
-                                            <td>{game.gamedeveloper}</td>
-                                            <td>
-                                                <Link to={`/dashboard/games/edit/${game.id}`}>
-                                                    <button className="game-x-edit-btn">
-                                                        <span><Settings size={28} /></span>
+                                    {Array.isArray(gamesx) && gamesx.length > 0 ? (
+                                        gamesx.map((game) => (
+                                            <tr key={game.id}>
+                                                <td>{game.gamename}</td>
+                                                <td>{game.gamedeveloper}</td>
+                                                <td>
+                                                    <Link to={`/dashboard/games/edit/${game.id}`}>
+                                                        <button className="game-x-edit-btn">
+                                                            <span><Settings size={28} /></span>
+                                                        </button>
+                                                    </Link>
+                                                    <button
+                                                        className="game-x-delete-btn"
+                                                        onClick={() => handleDeleteGame(game.id, game.gamename)}>
+                                                        <span><XCircle size={28} /></span>
                                                     </button>
-                                                </Link>
-                                                <button className="game-x-delete-btn" onClick={() => handleDeleteGame(game.id, game.gamename)}>
-                                                    <span><XCircle size={28} /></span>
-                                                </button>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan={6}>
+                                                <div className='sub-loader-x no-size-loader'>
+                                                    <div className="loader-max">
+                                                        <span className="load-max"></span>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
-                                    ))}
+                                    )}
                                 </tbody>
                             </table>
                         </div>

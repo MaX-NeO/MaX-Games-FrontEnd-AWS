@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
-import { Settings,XCircle } from "lucide-react";
+import { Settings, XCircle } from "lucide-react";
 export default function Dashboard() {
     const [gamesx, setGamesx] = useState([]);
     const uidx = Cookies.get('Useridx');
@@ -97,7 +97,13 @@ export default function Dashboard() {
                                         ))
                                     ) : (
                                         <tr>
-                                            <td colSpan={3}>No games found</td>
+                                            <td colSpan={6}>
+                                                <div className='sub-loader-x no-size-loader'>
+                                                    <div className="loader-max">
+                                                        <span className="load-max"></span>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
                                     )}
                                 </tbody>
