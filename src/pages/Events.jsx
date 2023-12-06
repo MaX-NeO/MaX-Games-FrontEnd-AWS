@@ -1,6 +1,6 @@
 import React from 'react'
-import { useState } from 'react';
-import Cookies from 'js-cookie';
+// import { useState } from 'react';
+// import Cookies from 'js-cookie';
 import imgE1 from '../assets/img/events/event1.jpg';
 import imgE2 from '../assets/img/events/event2.jpg';
 import imgE3 from '../assets/img/events/event3.jpg';
@@ -8,13 +8,14 @@ import imgE4 from '../assets/img/events/event4.jpg';
 
 export default function Events() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
+  // const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
+  const Authcheck = localStorage.getItem('isUser');
   return (
     <>
       <div className='main'>
-        {isLoggedIn ?
+        {Authcheck ?
           <div className='event-topbar'>
-            Welcome Back {Cookies.get('Usernamex')} !
+            Welcome Back {localStorage.getItem('Usernamex')} !
           </div>
           :
           <div></div>

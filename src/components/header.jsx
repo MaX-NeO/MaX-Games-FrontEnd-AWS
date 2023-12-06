@@ -1,16 +1,20 @@
 import React, { useState,useEffect, Suspense } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Logo from '../assets/img/logo.png';
-import Cookies from 'js-cookie';
 import { Home,Gamepad2,Swords,CircleUserRound,Power } from 'lucide-react';
 export default function Header() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  let AuthCheck = localStorage.getItem('isLoggedIn')
+  const rlogin = () => {
+    if (AuthCheck) {
+      navigate('/dashboard/games');
+    } else {
+      navigate('/login');
+    }
+  };
   useEffect(() => {
-    setIsLoggedIn(Cookies.get('isLoggedIn') === 'true');
+    rlogin();
   }, []);
-
   const rhome = () => {
     navigate('/');
   };
@@ -22,25 +26,6 @@ export default function Header() {
   const revents = () => {
     navigate('/Events');
   };
-
-  const rlogin = () => {
-    if (isLoggedIn) {
-      navigate('/dashboard/games');
-    } else {
-      navigate('/login');
-    }
-  };
-
-  useEffect(() => {
-    const handleCookieChange = () => {
-      setIsLoggedIn(Cookies.get('isLoggedIn') === 'true');
-    };   
-    window.addEventListener('change', handleCookieChange);
-    return () => {
-      window.removeEventListener('change', handleCookieChange);
-    };
-  }, []);
-
   return (
     <>
       <nav className="navbar">
@@ -57,7 +42,7 @@ export default function Header() {
             <label  htmlFor="tab-2"> <Gamepad2 size={28} /></label>
             <label  htmlFor="tab-3"> <Swords size={28} /> </label>
             <label  htmlFor="tab-4">
-              {isLoggedIn ? <Power size={28} /> : <CircleUserRound size={28} />}
+              {AuthCheck ? <Power size={28} /> : <CircleUserRound size={28} />}
             </label>
             <div className="underline" />
           </div>

@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 
 export default function Addgame() {
-  const usernameX = Cookies.get('Usernamex');
+  const usernameX = localStorage.getItem('Usernamex');
   const navigate = useNavigate();
   const [game, setGame] = useState({
     gamename: '',

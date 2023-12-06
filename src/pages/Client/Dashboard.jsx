@@ -4,11 +4,11 @@ import { GameDelete, userGamesx } from "../../services/api";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import { Settings, XCircle } from "lucide-react";
 export default function Dashboard() {
     const [gamesx, setGamesx] = useState([]);
-    const uidx = Cookies.get('Useridx');
+    const uidx = localStorage.getItem('Useridx');
 
     useEffect(() => {
         loadGames();

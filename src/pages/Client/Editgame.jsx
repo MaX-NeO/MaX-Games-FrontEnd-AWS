@@ -49,7 +49,7 @@ export default function EditGame() {
         e.preventDefault();
         try {
             await GameUpdate(id, game);
-            toast.info('Game Update !', {
+            toast.info( game + ' Updated !', {
                 position: "bottom-right",
                 autoClose: 1000,
                 hideProgressBar: false,

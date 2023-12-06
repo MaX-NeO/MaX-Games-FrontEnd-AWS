@@ -2,6 +2,8 @@ import Header from "./components/header";
 import { Routes, Route, Outlet } from 'react-router-dom';
 import { Suspense, lazy } from "react";
 import Loader from "./components/loader";
+import { UserAuth } from "./pages/Client/Auth/UserAuth";
+import { AdminAuth } from "./pages/Admin/Auth/AdminAuth";
 
 const Home = lazy(() => loading(2500).then(() => import("./pages/Home")))
 const Games = lazy(() => loading(2500).then(() => import("./pages/Games")))
@@ -28,20 +30,26 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/Games" element={<Games />} />
             <Route exact path="/Events" element={<Events />} />
-            <Route exact path="/Login" element={<Login />} />
-            <Route exact path="/Register" element={<Register />} />
             <Route exact path="/Game/:id" element={<GameViewPage />} />
             <Route exact path="/Game/categories/:gametype" element={<GameCategories />} />
-            <Route path="*" element={<Error404 />} />
+            <Route exact path="/Login" element={<Login />} />
+            <Route exact path="/Register" element={<Register />} />
             {/* User Auth routes */}
+            <Route element={<UserAuth/>}>
             <Route exact path="/dashboard/games" element={<Dashboard />} />
             <Route exact path="/dashboard/games/add" element={<Addgame />} />
             <Route exact path="/dashboard/games/edit/:id" element={<Editgame />} />
+            </Route>
             {/* Admin Auth routes */}
+            
             <Route exact path="/Admin/Login" element={<AdminLogin />} />
+            <Route element={<AdminAuth/>}>
             <Route exact path="/Admin/dashboard" element={<AdminDashboard />} />
             <Route exact path="/Admin/games/add" element={<AdminAddgame />} />
             <Route exact path="/Admin/games/edit/:id" element={<AdminEditGame />} />
+            </Route>
+            {/* 404 */}
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </Suspense>
       </div >

@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 export default function GameNav() {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
+    // const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
     const navigate = useNavigate();
 
 
     const userlogout = () => {
-        Cookies.remove('isLoggedIn');
-        Cookies.remove('Usernamex');
-        setIsLoggedIn(false);
+
+        localStorage.clear();
+        // setIsLoggedIn(false);
         navigate('/login');
     };
 

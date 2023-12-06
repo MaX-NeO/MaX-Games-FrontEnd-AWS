@@ -24,7 +24,7 @@ export default function Register() {
     e.preventDefault();
 
     const res = await SignUp(signup.username, signup.password, signup.email, signup.phone, signup.age);
-    console.log(res);
+    // console.log(res);
     if (res.data === "Signup Successful !") {
       toast.success('Signup Successful !', {
         position: "bottom-right",
@@ -84,7 +84,6 @@ export default function Register() {
                   <div className="login-form-group textInputWrapper">
                     <input autoComplete="off" type="number" placeholder="Age" id="age" value={signup.age} onChange={handleChange} required className='textInput' />
                   </div>
-                  {/* <input type='submit' className="rounded-button login-cta d-form-btn" placeholder='Signup' value='Register' /> */}
                   <button className="button-m-x mb-1" type='submit'>
                     <span>Register</span>
                     <div className="top green"></div>
@@ -106,11 +105,10 @@ export default function Register() {
                     </div>
                     <div className="slide-content">
                       <h2>Turn your skills into reality.</h2>
-                      <p>`[`Play - Eat - Sleep `]`</p>
+                      <p>M-A-X G-A-M-E-S</p>
                     </div>
                   </div>
                 </div>
-                {/* Add Pagination */}
                 <div className="swiper-pagination" />
               </div>
             </div>

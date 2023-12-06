@@ -1,25 +1,14 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 export default function AdminNav() {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isAdmin') === 'true');
+    // const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isAdmin') === 'true');
     const navigate = useNavigate();
-    useEffect(() => {
-        if (!isLoggedIn) {
-            navigate('/Admin/login');
-        }
-    }, [isLoggedIn, navigate]);
 
-    const userlogout = () => {
-        if (isLoggedIn) {
+    const adminlogout = () => {
+            localStorage.clear();
             navigate('/Admin/login');
-            Cookies.remove('isAdmin');
-            Cookies.remove('Usernamez');
-            setIsLoggedIn(false);
-        } else {
-            navigate('/Admin/login');
-        }
     };
 
     const routegame = () => {
@@ -47,7 +36,7 @@ export default function AdminNav() {
                         <div className="right green"></div>
                     </button>
                 </div>
-                <button className="button-m-x game-nav-logout-button  layout-nav" onClick={userlogout}>
+                <button className="button-m-x game-nav-logout-button  layout-nav" onClick={adminlogout}>
                     <span>Logout</span>
                     <div className="top red"></div>
                     <div className="left red"></div>

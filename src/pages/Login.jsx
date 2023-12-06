@@ -8,8 +8,7 @@ import Cookies from 'js-cookie';
 import Dashboard from './Client/Dashboard';
 import Logo from '../assets/img/logo.png';
 export default function Login() {
-    const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
-    const [loading, setLoading] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(Cookies.get('isLoggedIn') === 'true');
     const navigate = useNavigate();
     const [signin, setSignin] = useState({
         username: '',
@@ -42,9 +41,14 @@ export default function Login() {
             if (res.data === "Login Successful !") {
                 const userData = await UserData(signin.username);
                 const userId = userData.data.id;
-                Cookies.set('Usernamex', signin.username);
-                Cookies.set('Useridx', userId);
-                Cookies.set('isLoggedIn', 'true');
+                // Cookies.set('Usernamex', signin.username);
+                // Cookies.set('Useridx', userId);
+                // Cookies.set('isLoggedIn', 'true');
+                localStorage.setItem('Usernamex', signin.username);
+                localStorage.setItem('Useridx',userId);
+                localStorage.setItem('isLoggedIn','true');
+                localStorage.setItem('isUser','true');
+
 
                 toast.update(toaster, { render: "Login Successful !", type: "success", isLoading: false });
 
@@ -68,9 +72,9 @@ export default function Login() {
 
     return (
         <>
-            {isLoggedIn ?
+            {/* {isLoggedIn ?
                 <Dashboard />
-                :
+                : */}
                 <div className='mainxz max-d-filter'>
                     <div className=''>
 
@@ -124,7 +128,7 @@ export default function Login() {
                     </div>
                 </div >
 
-            }
+            {/* } */}
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
