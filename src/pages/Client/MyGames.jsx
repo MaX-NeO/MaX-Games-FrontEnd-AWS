@@ -22,8 +22,9 @@ export default function Dashboard() {
             });
     };
     const handleDeleteGame = (gameId, gameName) => {
-        GameDelete(gameId)
-        const toaster = toast.loading("Deleting Game ...", {
+        let ct = "Are you want to delete "+gameName + " ?";
+        if(confirm(ct)){
+            const toaster = toast.loading("Deleting Game ...", {
             position: "bottom-right",
             autoClose: 3000,
             hideProgressBar: false,
@@ -34,6 +35,7 @@ export default function Dashboard() {
             theme: "dark",
             isLoading: false
           })
+            GameDelete(gameId)
             .then(() => {
                 loadGames();
                 toast.update(toaster, { render: "Game Deleted !", type: "success", isLoading: false });
@@ -41,6 +43,7 @@ export default function Dashboard() {
             .catch((error) => {
                 toast.update(toaster, { render: "Failed to delete the Game !", type: "error", isLoading: false });
             });
+        }
     };
     return (
         <div className='game-x-main'>

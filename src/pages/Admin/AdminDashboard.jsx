@@ -17,25 +17,29 @@ export default function AdminDashboard() {
         });
     };
     const handleDeleteGame = (gameId, gameName) => {
-        GameDelete(gameId)
-        const toaster = toast.loading("Deleting Game ...", {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            isLoading: false
-        })
-            .then(() => {
-                loadGames();
-                toast.update(toaster, { render: "Game Deleted !", type: "success", isLoading: false });
+
+        let ct = "Are you want to delete " + gameName + " ?";
+        if (confirm(ct)) {
+            const toaster = toast.loading("Deleting Game ...", {
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                isLoading: false
             })
-            .catch((error) => {
-                toast.update(toaster, { render: "Failed to delete the Game !", type: "error", isLoading: false });
-            });
+            GameDelete(gameId)
+                .then(() => {
+                    loadGames();
+                    toast.update(toaster, { render: "Game Deleted !", type: "success", isLoading: false });
+                })
+                .catch((error) => {
+                    toast.update(toaster, { render: "Failed to delete the Game !", type: "error", isLoading: false });
+                });
+        }
     };
 
     return (
@@ -51,6 +55,7 @@ export default function AdminDashboard() {
                                     <tr>
                                         <th>Game Name</th>
                                         <th>Developer</th>
+                                        <th>Publisher</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -63,6 +68,7 @@ export default function AdminDashboard() {
                                         gamesx.map((game) => (
                                             <tr key={game.id}>
                                                 <td>{game.gamename}</td>
+                                                <td>{game.auth.username}</td>
                                                 <td>{game.gamedeveloper}</td>
                                                 <td>
                                                     <Link to={`/dashboard/games/edit/${game.id}`}>
