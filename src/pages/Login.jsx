@@ -111,7 +111,6 @@ export default function Login() {
                 draggable
                 pauseOnHover
                 theme="dark"/>
-
         </>
     )
 }

@@ -23,31 +23,23 @@ export default function Dashboard() {
     };
     const handleDeleteGame = (gameId, gameName) => {
         GameDelete(gameId)
+        const toaster = toast.loading("Deleting Game ...", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            isLoading: false
+          })
             .then(() => {
                 loadGames();
-                toast.success(`${gameName} Deleted !`, {
-                    position: "bottom-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
+                toast.update(toaster, { render: "Game Deleted !", type: "success", isLoading: false });
             })
             .catch((error) => {
-                console.error("Failed to delete the game:", error);
-                toast.error("Failed to delete the game.", {
-                    position: "bottom-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
+                toast.update(toaster, { render: "Failed to delete the Game !", type: "error", isLoading: false });
             });
     };
     return (

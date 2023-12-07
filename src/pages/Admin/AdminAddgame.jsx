@@ -24,31 +24,13 @@ export default function AdminAddgame() {
     e.preventDefault();
     GameAdd(game)
       .then((res) => {
-        toast.success('Game Added !', {
-          position: "bottom-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        toast.update(toaster, { render: "Game Added !", type: "success", isLoading: false });
         setTimeout(() => {
           navigate("/dashboard/games");
-        }, 1500);
+        }, 2000);
       })
       .catch((err) => {
-        toast.error('Failed to add Game !', {
-          position: "bottom-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        toast.update(toaster, { render: "Failed to add Game !", type: "error", isLoading: false });
       });
   };
 

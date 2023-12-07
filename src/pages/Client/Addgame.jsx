@@ -22,33 +22,26 @@ export default function Addgame() {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
+    const toaster = toast.loading("Adding Game ...", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      isLoading: false
+    })
     userGameAdd(usernameX, game)
-      .then((res) => {
-        toast.success('Game Added !', {
-          position: "bottom-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+      .then((res) => {        
+        toast.update(toaster, { render: "Game Added !", type: "success", isLoading: false });
         setTimeout(() => {
           navigate("/dashboard/games");
-        }, 1500);
+        }, 2000);
       })
       .catch((err) => {
-        toast.error('Failed to add Game !', {
-          position: "bottom-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        toast.update(toaster, { render: "Failed to add Game !", type: "error", isLoading: false });
       });
   };
   const handleChange = (e) => {
@@ -126,7 +119,7 @@ export default function Addgame() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"/>
+        theme="dark" />
     </>
   )
 }

@@ -42,23 +42,25 @@ export default function EditGame() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const toaster = toast.loading("Updating Game ...", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            isLoading: false
+        })
         try {
             await GameUpdate(id, game);
-            toast.info( game + ' Updated !', {
-                position: "bottom-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
+            toast.update(toaster, { render: "Game Updated !", type: "success", isLoading: false });
             setTimeout(() => {
                 navigate("/dashboard/games");
-            }, 1500);
+            }, 2000);
         } catch (err) {
-            console.error("Failed to update game:", err);
+            toast.update(toaster, { render: "Failed to update Game !", type: "error", isLoading: false });
         }
     };
 
@@ -67,7 +69,6 @@ export default function EditGame() {
             <GameNav />
             <div className='game-actions'>
                 <h1 className="game-page-title">Edit Games </h1>
-
                 <div className="data-x-game-container">
                     <form onSubmit={handleSubmit} className='input-group'>
                         <label>
@@ -118,7 +119,6 @@ export default function EditGame() {
                     </form>
                 </div>
             </div>
-
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
@@ -129,7 +129,7 @@ export default function EditGame() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="dark"/>
+                theme="dark" />
         </div>
     );
 }

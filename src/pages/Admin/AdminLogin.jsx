@@ -31,7 +31,6 @@ export default function AdminLogin() {
         try {
             const res = await AdminSignIn(signin.username, signin.password);
             if (res.data === "Login Successful !") {
-
                 localStorage.setItem('Usernamez', signin.username);
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('isAdmin', 'true');
@@ -39,7 +38,6 @@ export default function AdminLogin() {
                 setTimeout(() => {
                     navigate('/Admin/dashboard');
                 }, 1500);
-
             } else if (res.data === "Invalid Password") {
                 toast.update(toaster, { render: "Invalid Password!", type: "error", isLoading: false });
             } else {
@@ -51,6 +49,7 @@ export default function AdminLogin() {
             console.error('An error occurred:', error);
         }
     };
+    
     return (
         <>
             <div className='mainxz'>
