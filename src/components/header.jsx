@@ -9,7 +9,7 @@ export default function Header() {
 
   const rlogin = () => {
     if (AuthCheck) {
-      navigate('/dashboard/games');
+      navigate('/dashboard');
     } else {
       navigate('/login');
     }

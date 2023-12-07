@@ -34,11 +34,8 @@ export default function EditGame() {
         }
     };
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setGame((prevGame) => ({
-            ...prevGame,
-            [name]: value,
-        }));
+        e.preventDefault();
+        setGame((prevGame) => ({ ...prevGame, [e.target.name]: e.target.value }));
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -63,7 +60,7 @@ export default function EditGame() {
             toast.update(toaster, { render: "Failed to update Game !", type: "error", isLoading: false });
         }
     };
-
+console.log(game)
     return (
         <div className='game-x-main'>
             <GameNav />
@@ -85,7 +82,16 @@ export default function EditGame() {
                         </label>
                         <label>
                             Type :
-                            <input type="text" name="gametype" value={game.gametype} onChange={handleChange} />
+                            <span className="select-dropdown">
+                                <select name="gametype" value={game.gametype} onChange={handleChange}>
+                                    <option value="Action">Action</option>
+                                    <option value="OpenWorld">OpenWorld</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Racing">Racing</option>
+                                    <option value="Fighting">Fighting</option>
+                                    <option value="Survival">Survival</option>
+                                </select>
+                            </span>
                         </label>
                         <label>
                             Ratings :

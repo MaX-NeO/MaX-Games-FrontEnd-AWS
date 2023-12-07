@@ -8,6 +8,7 @@ import { Settings, XCircle } from "lucide-react";
 
 export default function Dashboard() {
     const [gamesx, setGamesx] = useState([]);
+    const [cloader, setCloader] = useState(true);
     const uidx = localStorage.getItem('Useridx');
     useEffect(() => {
         loadGames();
@@ -22,29 +23,32 @@ export default function Dashboard() {
             });
     };
     const handleDeleteGame = (gameId, gameName) => {
-        let ct = "Are you want to delete "+gameName + " ?";
-        if(confirm(ct)){
+        let ct = "Are you want to delete " + gameName + " ?";
+        if (confirm(ct)) {
             const toaster = toast.loading("Deleting Game ...", {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            isLoading: false
-          })
-            GameDelete(gameId)
-            .then(() => {
-                loadGames();
-                toast.update(toaster, { render: "Game Deleted !", type: "success", isLoading: false });
+                position: "bottom-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                isLoading: false
             })
-            .catch((error) => {
-                toast.update(toaster, { render: "Failed to delete the Game !", type: "error", isLoading: false });
-            });
+            GameDelete(gameId)
+                .then(() => {
+                    loadGames();
+                    toast.update(toaster, { render: "Game Deleted !", type: "success", isLoading: false });
+                })
+                .catch((error) => {
+                    toast.update(toaster, { render: "Failed to delete the Game !", type: "error", isLoading: false });
+                });
         }
     };
+    setTimeout(() => {
+        setCloader(false);
+    }, 10000)
     return (
         <div className='game-x-main'>
             <GameNav />
@@ -85,28 +89,26 @@ export default function Dashboard() {
                                                 </td>
                                             </tr>
                                         ))
-                                    ) : gamesx.length == 0 ? (
-                                        <tr>
-                                            <td colSpan={10}>
-                                                <div className="terminal-loader">
-                                                    <div className="terminal-header">
-                                                        <div className="terminal-title">Status</div>
-                                                        <div className="terminal-controls">
-                                                            <div className="control maximize"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="terminal-text">No Games Found .. </div>
-                                                </div>
-                                            </td>
-                                        </tr>
                                     ) : (
                                         <tr>
                                             <td colSpan={6}>
-                                                <div className='sub-loader-x no-size-loader'>
-                                                    <div className="loader-max">
-                                                        <span className="load-max"></span>
+                                                {cloader && gamesx.length === 0 ? (
+                                                    <div className='sub-loader-x no-size-loader h-30-v'>
+                                                        <div className="loader-max">
+                                                            <span className="load-max"></span>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                ) : (
+                                                    <div className="terminal-loader">
+                                                        <div className="terminal-header">
+                                                            <div className="terminal-title">Status</div>
+                                                            <div className="terminal-controls">
+                                                                <div className="control maximize"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="terminal-text">No Games Found .. </div>
+                                                    </div>
+                                                )}
                                             </td>
                                         </tr>
                                     )}

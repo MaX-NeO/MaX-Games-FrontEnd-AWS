@@ -39,7 +39,7 @@ export default function Login() {
                 localStorage.setItem('isUser', 'true');
                 toast.update(toaster, { render: "Login Successful !", type: "success", isLoading: false });
                 setTimeout(() => {
-                    navigate('/dashboard/games');
+                    navigate('/dashboard');
                 }, 1500);
             } else if (res.data === "Invalid Password") {
                 toast.update(toaster, { render: "Invalid Password!", type: "error", isLoading: false });
