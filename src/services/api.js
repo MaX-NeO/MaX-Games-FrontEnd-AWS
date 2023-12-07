@@ -18,6 +18,6 @@ const GameAdd = (addGame) => axios.post(`${URL}/game`, addGame);
 const GameCover = () => axios.get(`${URL}/game/coverurl1data`);
 const GameCategoriesData = () => axios.get(`${URL}/gametypes`);
 const GameCategoriesDataView = (gametype) => axios.get(`${URL}/game/categories/${gametype}`);
+const ViewUsers =()=>axios.get(`${URL}/auth/users`);
 
-
-export { SignIn, SignUp, UserData, Gamesx, GameAdd, GameView, GameUpdate, GameDelete, GameCover, GameCategoriesData, GameCategoriesDataView, userGamesx, userGameAdd,AdminSignIn }
+export { SignIn, SignUp, UserData, Gamesx, GameAdd, GameView, GameUpdate, GameDelete, GameCover, GameCategoriesData, GameCategoriesDataView, userGamesx, userGameAdd,AdminSignIn,ViewUsers}

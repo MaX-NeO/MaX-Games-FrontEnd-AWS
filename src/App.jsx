@@ -17,9 +17,11 @@ const Dashboard = lazy(() => import("./pages/Client/Dashboard"))
 const Mygames = lazy(() => import("./pages/Client/MyGames"))
 const Addgame = lazy(() => import("./pages/Client/Addgame"))
 const Editgame = lazy(() => import("./pages/Client/Editgame"))
+const AdminDashboard = lazy(() => import("./pages/Admin/AdminDashboard"))
+const AdminGames = lazy(() => import("./pages/Admin/AdminGames"))
 const AdminAddgame = lazy(() => import("./pages/Admin/AdminAddgame"))
 const AdminEditGame = lazy(() => import("./pages/Admin/AdminEditgame"))
-const AdminDashboard = lazy(() => import("./pages/Admin/AdminDashboard"))
+const AdminViewUsers = lazy(()=> import("./pages/Admin/AdminViewUsers"))
 const Error404 = lazy(() => import('./pages/Error404'))
 function App() {
   return (
@@ -46,8 +48,10 @@ function App() {
             <Route exact path="/Admin/Login" element={<AdminLogin />} />
             <Route element={<AdminAuth/>}>
             <Route exact path="/Admin/dashboard" element={<AdminDashboard />} />
+            <Route exact path="/Admin/games" element={<AdminGames />} />
             <Route exact path="/Admin/games/add" element={<AdminAddgame />} />
             <Route exact path="/Admin/games/edit/:id" element={<AdminEditGame />} />
+            <Route exact path="/Admin/users" element={<AdminViewUsers />} />
             </Route>
             {/* 404 */}
             <Route path="*" element={<Error404 />} />

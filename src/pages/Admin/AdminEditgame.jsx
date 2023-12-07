@@ -57,7 +57,7 @@ export default function AdminEditGame() {
             await GameUpdate(id, game);
             toast.update(toaster, { render: "Game Updated !", type: "success", isLoading: false });
             setTimeout(() => {
-                navigate("/dashboard/games");
+                navigate("/Admin/games");
             }, 2000);
         } catch (err) {
             toast.update(toaster, { render: "Failed to update Game !", type: "error", isLoading: false });
@@ -86,7 +86,16 @@ export default function AdminEditGame() {
                         </label>
                         <label>
                             Type :
-                            <input type="text" name="gametype" value={game.gametype} onChange={handleChange} />
+                            <span className="select-dropdown">
+                                <select name="gametype" value={game.gametype} onChange={handleChange}>
+                                    <option value="Action">Action</option>
+                                    <option value="OpenWorld">OpenWorld</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Racing">Racing</option>
+                                    <option value="Fighting">Fighting</option>
+                                    <option value="Survival">Survival</option>
+                                </select>
+                            </span>
                         </label>
                         <label>
                             Ratings :

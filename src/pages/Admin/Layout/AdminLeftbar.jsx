@@ -6,26 +6,45 @@ export default function AdminNav() {
             localStorage.clear();
             navigate('/Admin/login');
     };
-    const routegame = () => {
+    const routedashbaord = () => {
         navigate('/Admin/dashboard');
     };
-    const routeadd = () => {
+    const routegame = () => {
+        navigate('/Admin/games');
+    };
+    const routeaddgame = () => {
         navigate('/Admin/games/add')
-    }
-
+    };
+    const routeuser = () => {
+        navigate('/Admin/users');
+    };
     return (
         <>
             <div className='game-sidenav'>
                 <div className='game-nav-container'>
-                    <button className="button-m-x mb-1 layout-nav" onClick={routegame}>
-                        <span>View Games</span>
+                    <button className="button-m-x mb-1 layout-nav" onClick={routedashbaord}>
+                        <span>Dashboard</span>
                         <div className="top green"></div>
                         <div className="left green"></div>
                         <div className="bottom green"></div>
                         <div className="right green"></div>
                     </button>
-                    <button className="button-m-x mb-1 layout-nav" onClick={routeadd}>
+                    <button className="button-m-x mb-1 layout-nav" onClick={routegame}>
+                        <span>Games</span>
+                        <div className="top green"></div>
+                        <div className="left green"></div>
+                        <div className="bottom green"></div>
+                        <div className="right green"></div>
+                    </button>
+                    <button className="button-m-x mb-1 layout-nav" onClick={routeaddgame}>
                         <span>Add Game</span>
+                        <div className="top green"></div>
+                        <div className="left green"></div>
+                        <div className="bottom green"></div>
+                        <div className="right green"></div>
+                    </button>
+                    <button className="button-m-x mb-1 layout-nav" onClick={routeuser}>
+                        <span>Users</span>
                         <div className="top green"></div>
                         <div className="left green"></div>
                         <div className="bottom green"></div>

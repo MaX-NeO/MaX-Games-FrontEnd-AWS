@@ -26,7 +26,7 @@ export default function AdminAddgame() {
       .then((res) => {
         toast.update(toaster, { render: "Game Added !", type: "success", isLoading: false });
         setTimeout(() => {
-          navigate("/dashboard/games");
+          navigate("/Admin/games");
         }, 2000);
       })
       .catch((err) => {
@@ -64,7 +64,16 @@ export default function AdminAddgame() {
               </label>
               <label>
                 Type :
-                <input type="text" name="gametype" value={game.gametype} onChange={handleChange} required />
+                <span className="select-dropdown">
+                  <select name="gametype" value={game.gametype} onChange={handleChange}>
+                    <option value="Action">Action</option>
+                    <option value="OpenWorld">OpenWorld</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Racing">Racing</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Survival">Survival</option>
+                  </select>
+                </span>
               </label>
               <label>
                 Ratings :

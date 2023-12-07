@@ -6,10 +6,10 @@ import { Home, Gamepad2, Swords, CircleUserRound, Power } from 'lucide-react';
 export default function Header() {
   const navigate = useNavigate();
   const AuthCheck = localStorage.getItem('isLoggedIn');
-
+  const UserCheck = localStorage.getItem('isUser') === 'true'
   const rlogin = () => {
     if (AuthCheck) {
-      navigate('/dashboard');
+      UserCheck ?  navigate('/dashboard') : navigate('/Admin/dashboard')
     } else {
       navigate('/login');
     }
