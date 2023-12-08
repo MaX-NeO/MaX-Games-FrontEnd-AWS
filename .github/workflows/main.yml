@@ -1,4 +1,4 @@
-name: Docker CI Sptring [DF->IMG]
+name: Docker CI React [DF->IMG]
 
 on:
   push:
