@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import AdminNav from './Layout/AdminLeftbar'
 import { ViewUsers,Gamesx } from '../../services/api';
-const AdminDashboard = () => {
 
+const AdminDashboard = () => {
   const [users, setUsers] = useState(0);
   const [games, setGames] = useState(0);
   useEffect(() => {
@@ -14,14 +14,12 @@ const AdminDashboard = () => {
       setUsers(res.data.length);
     });
   };
-
   const loadGames = () => {
       Gamesx().then((res) => {
           setGames(res.data.length);
       });
   };
-  console.log(users,games)
-
+  
   return (
     <>
       <div className='game-x-main'>

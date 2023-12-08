@@ -11,6 +11,7 @@ const Category = () => {
       try {
         const response = await GameCategoriesData() ;
         setGameCategories(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching game categories:', error);
       }
@@ -18,7 +19,6 @@ const Category = () => {
 
     fetchGameCategories();
   }, []);
-
   return (
     <>
       <div className="category-card-container">

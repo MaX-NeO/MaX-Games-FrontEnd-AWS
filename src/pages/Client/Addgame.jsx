@@ -11,7 +11,7 @@
       gamename: '',
       releaseyear: '',
       gamedeveloper: '',
-      gametype: '',
+      gametype: 'Action',
       gameratings: '',
       gameprice: '',
       gamedesc: '',
@@ -72,7 +72,7 @@
                   Type :
                   <span className="select-dropdown">
                     <select name="gametype" value={game.gametype} onChange={handleChange} required>
-                      <option value="Action">Action</option>
+                      <option value="Action" selected='true'>Action</option>
                       <option value="OpenWorld">OpenWorld</option>
                       <option value="Sports">Sports</option>
                       <option value="Racing">Racing</option>

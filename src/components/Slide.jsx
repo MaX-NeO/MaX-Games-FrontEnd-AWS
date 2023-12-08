@@ -58,6 +58,7 @@ const Option = ({ GameCoverImg, onClick, className }) => (
     <div className={`option ${className}`} style={{ '--GameCoverx': `url(${GameCoverImg})` }} onClick={onClick}>
         <div className="shadow"></div>
         <div className="label">
+            {/* Game Name */}
             <div className="icon">
                 <span>
                     <Gamepad2 size={24} />
