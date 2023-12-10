@@ -1115,6 +1115,7 @@ td {
 	padding: 0.5rem;
 	font-size: 0.5rem;
 	margin-right: 0.2rem;
+	cursor: pointer;
 }
 
 .game-x-edit-btn:hover {
@@ -1130,8 +1131,30 @@ td {
 	padding: 0.5rem;
 	font-size: 0.5rem;
 	margin-left: 0.2rem;
+	cursor: pointer;
 }
+.game-x-btn-disable{
+	color:#690101;
+	border: 2px solid #690101;
+	border-radius: 50%;
+	padding: 0.5rem;
+	font-size: 0.5rem;
+	margin-left: 0.2rem;
+	cursor: pointer;
+	background-color: #000;
+	
+}
+.game-x-btn-enable{
+	color: #0f6901;
+	border: 2px solid #0f6901;
+	border-radius: 50%;
+	padding: 0.5rem;
+	font-size: 0.5rem;
+	margin-left: 0.2rem;
+	cursor: pointer;
+	background-color: #000;
 
+}
 .game-x-delete-btn:hover {
 	background-color: #ff0000;
 	border: 2px solid #690101;

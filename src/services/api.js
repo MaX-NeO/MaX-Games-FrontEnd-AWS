@@ -2,7 +2,8 @@ import axios from "axios";
 
 //Spring Boot API Config 
 // const URL = 'https://max-games-aws.onrender.com/api';
-const URL = 'http://3.111.219.118:8080/api';
+// const URL = 'http://3.111.219.118:8080/api';
+const URL = 'http://localhost:8080/api';
 
 const SignUp = (username, password, email, phone, age) => axios.post(URL + '/auth/signup', { username, password, email, phone, age });
 const SignIn = (username, password) => axios.post(URL + '/auth/signin', { username, password })
@@ -20,4 +21,11 @@ const GameCategoriesData = () => axios.get(`${URL}/gametypes`);
 const GameCategoriesDataView = (gametype) => axios.get(`${URL}/game/categories/${gametype}`);
 const ViewUsers =()=>axios.get(`${URL}/auth/users`);
 
-export { SignIn, SignUp, UserData, Gamesx, GameAdd, GameView, GameUpdate, GameDelete, GameCover, GameCategoriesData, GameCategoriesDataView, userGamesx, userGameAdd,AdminSignIn,ViewUsers}
+
+const GamesActive = ()=> axios.get(`${URL}/game/active`)
+const UserStatus = (username, enable) => axios.put(`${URL}/auth/user/status/${username}`, null, { params: { enable } });
+const GameStatus = (id, enable) => axios.put(`${URL}/game/status/${id}`, null, { params: { enable } });
+const GamePin = (id, enable) => axios.put(`${URL}/game/pin/${id}`, null, { params: { enable } });
+
+
+export { SignIn, SignUp, UserData, Gamesx, GameAdd, GameView, GameUpdate, GameDelete, GameCover, GameCategoriesData, GameCategoriesDataView, userGamesx, userGameAdd,AdminSignIn,ViewUsers,GamesActive,UserStatus,GameStatus,GamePin}

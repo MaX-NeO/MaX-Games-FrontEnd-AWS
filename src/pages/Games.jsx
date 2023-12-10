@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Gamesx } from '../services/api';
+import { GamesActive } from '../services/api';
 import { Link } from 'react-router-dom';
 
 export default function Games() {
   const [gamesx, setGamesx] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    Gamesx().then((res) => {
+    GamesActive().then((res) => {
       setGamesx(res.data);
       setLoading(false);
     });

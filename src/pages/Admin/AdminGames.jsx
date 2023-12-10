@@ -1,21 +1,43 @@
 import AdminNav from "./Layout/AdminLeftbar";
 import { useEffect, useState } from "react";
-import { Gamesx, GameDelete } from "../../services/api";
+import { Gamesx, GameDelete, GameStatus, GamePin } from "../../services/api";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Settings, XCircle } from "lucide-react";
+import { Settings, ShieldX, XCircle } from "lucide-react";
 
 export default function AdminDashboard() {
     const [gamesx, setGamesx] = useState([]);
-    useEffect(() => {
-        loadGames();
-    }, []);
-    const loadGames = () => {
-        Gamesx().then((res) => {
-            setGamesx(res.data);
+
+    const handleGameStatus = (id, enable) => {
+        console.log(enable);
+
+
+        const toaster = toast.loading("Processing ...", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            isLoading: false
+        })
+        GameStatus(id, !enable)
+        .then(response => {
+            toast.update(toaster, { render: `${response.data}`, type: "success", isLoading: false });
+            loadGames();  
+        })
+        .catch(error => {
+          console.error('Error toggling user status:', error);
         });
-    };
+
+    }
+
+    const handleGamePin = () => {
+
+    }
     const handleDeleteGame = (gameId, gameName) => {
 
         let ct = "Are you want to delete " + gameName + " ?";
@@ -41,7 +63,15 @@ export default function AdminDashboard() {
                 });
         }
     };
-
+    useEffect(() => {
+        loadGames();
+    }, []);
+    const loadGames = () => {
+        Gamesx().then((res) => {
+            setGamesx(res.data);
+        });
+    };
+    console.log(gamesx)
     return (
         <div className='game-x-main'>
             <AdminNav />
@@ -56,6 +86,7 @@ export default function AdminDashboard() {
                                         <th>Game Name</th>
                                         <th>Developer</th>
                                         <th>Publisher</th>
+                                        <th>Visiblity</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -68,8 +99,22 @@ export default function AdminDashboard() {
                                         gamesx.map((game) => (
                                             <tr key={game.id}>
                                                 <td>{game.gamename}</td>
-                                                <td>{game.auth.username}</td>
                                                 <td>{game.gamedeveloper}</td>
+                                                <td>{game.auth.username}</td>
+
+                                                <td>
+                                                    <button
+                                                        className={game.gameisenabled ? 'game-x-btn-disable' : 'game-x-btn-enable'}
+                                                        onClick={() => handleGameStatus(game.id, game.gameisenabled)}>
+                                                        <span><ShieldX size={28} />
+                                                        </span>
+                                                    </button>
+                                                    <button
+                                                        className="game-x-delete-btn"
+                                                        onClick={() => handleGamePin(game.id, game.gameispinned)}>
+                                                        <span><XCircle size={28} /></span>
+                                                    </button>
+                                                </td>
                                                 <td>
                                                     <Link to={`/Admin/games/edit/${game.id}`}>
                                                         <button className="game-x-edit-btn">
