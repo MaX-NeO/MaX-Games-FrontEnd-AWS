@@ -8,18 +8,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() {
   const navigate = useNavigate();
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
   const [signup, setSignup] = useState({
     username: '',
     email: '',
     password: '',
     phone: '',
-    age: ''
+    age: '',
+    isactive:true
   })
   const handleChange = (e) => {
     setSignup({ ...signup, [e.target.id]: e.target.value })
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setButtonDisabled(true);
+    setTimeout(() => {
+      setButtonDisabled(false);
+    }, 5000);
     const res = await SignUp(signup.username, signup.password, signup.email, signup.phone, signup.age);
     if (res.data === "Signup Successful !") {
       toast.success('Signup Successful !', {
@@ -86,7 +92,7 @@ export default function Register() {
                     <div className="right green"></div>
                   </button>
                 </form>
-                <div className="register-div">Goback ? <Link to="/login" className="link create-account" > Login </Link></div>
+                <div className="register-div">Goback ? <Link to="/login" className="link create-account"disabled={isButtonDisabled} > Login </Link></div>
               </div>
             </div>
             <div className="onboarding">

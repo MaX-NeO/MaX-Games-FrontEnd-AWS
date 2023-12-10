@@ -11,7 +11,6 @@ export default function Games() {
       setLoading(false);
     });
   }, []);
-
   return (
     <>
       <div className='main'>

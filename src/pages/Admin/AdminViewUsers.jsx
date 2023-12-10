@@ -1,13 +1,34 @@
 import { useState, useEffect } from 'react'
-import { ViewUsers } from '../../services/api'
+import { UserStatus, ViewUsers } from '../../services/api'
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { UserRoundX, UserRoundCog } from "lucide-react";
+import { UserRoundX, UserRoundCog, Ban, CheckCircle2 } from "lucide-react";
 import AdminNav from './Layout/AdminLeftbar';
 
 const AdminViewUsers = () => {
     const [users, setUsers] = useState([]);
+    const handleUserStatus = (username, enable) => {
+        const toaster = toast.loading("Processing ...", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            isLoading: false
+        })
+        UserStatus(username, !enable)
+            .then(response => {
+                toast.update(toaster, { render: `${response.data}`, type: "success", isLoading: false });
+                loadUsers();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
     useEffect(() => {
         loadUsers();
     }, []);
@@ -19,7 +40,7 @@ const AdminViewUsers = () => {
     const handleDeleteUser = (id, name) => {
         console.log(name);
     }
-    
+    console.log(users)
     return (
         <>
             <div className='game-x-main'>
@@ -52,9 +73,16 @@ const AdminViewUsers = () => {
                                                     <td>{user.password}</td>
                                                     <td>{user.phone}</td>
                                                     <td>
+                                                        <button
+                                                            className={user.isactive ? 'game-x-btn-disable' : 'game-x-btn-enable'}
+                                                            onClick={() => handleUserStatus(user.username, user.isactive)}>
+                                                            {
+                                                                user.isactive ? <Ban size={28} /> : <CheckCircle2 size={28} />
+                                                            }
+                                                        </button>
                                                         <Link to={`/Admin/user/edit/${user.id}`}>
                                                             <button className="game-x-edit-btn">
-                                                                <span> <UserRoundCog size={28}/></span>
+                                                                <span> <UserRoundCog size={28} /></span>
                                                             </button>
                                                         </Link>
                                                         <button

@@ -22,6 +22,7 @@ const AdminGames = lazy(() => import("./pages/Admin/AdminGames"))
 const AdminAddgame = lazy(() => import("./pages/Admin/AdminAddgame"))
 const AdminEditGame = lazy(() => import("./pages/Admin/AdminEditgame"))
 const AdminViewUsers = lazy(()=> import("./pages/Admin/AdminViewUsers"))
+const AdminGameExamine = lazy(()=> import("./pages/Admin/AdminGameExamine"))
 const Error404 = lazy(() => import('./pages/Error404'))
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
             <Route exact path="/Admin/games/add" element={<AdminAddgame />} />
             <Route exact path="/Admin/games/edit/:id" element={<AdminEditGame />} />
             <Route exact path="/Admin/users" element={<AdminViewUsers />} />
+            <Route exact path="/Admin/game/view/:id" element={<AdminGameExamine />} />
             </Route>
             {/* 404 */}
             <Route path="*" element={<Error404 />} />

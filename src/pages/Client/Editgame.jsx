@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function EditGame() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const [isButtonDisabled, setButtonDisabled] = useState(false);
     const [game, setGame] = useState({
         gamename: "",
         releaseyear: 0,
@@ -38,7 +39,10 @@ export default function EditGame() {
         setGame((prevGame) => ({ ...prevGame, [e.target.name]: e.target.value }));
     };
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); setButtonDisabled(true);
+        setTimeout(() => {
+            setButtonDisabled(false);
+        }, 5000);
         const toaster = toast.loading("Updating Game ...", {
             position: "bottom-right",
             autoClose: 3000,
@@ -60,7 +64,7 @@ export default function EditGame() {
             toast.update(toaster, { render: "Failed to update Game !", type: "error", isLoading: false });
         }
     };
-console.log(game)
+    console.log(game)
     return (
         <div className='game-x-main'>
             <GameNav />
@@ -121,7 +125,7 @@ console.log(game)
                             Cover URL 3 :
                             <input type="text" name="coverurl3" value={game.coverurl3} onChange={handleChange} />
                         </label>
-                        <button type="submit" className='game-nav-button'>Update</button>
+                        <button type="submit" className='game-nav-button'disabled={isButtonDisabled}>Update</button>
                     </form>
                 </div>
             </div>

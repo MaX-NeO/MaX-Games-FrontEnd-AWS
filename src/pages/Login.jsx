@@ -30,7 +30,7 @@ export default function Login() {
         })
         try {
             const res = await SignIn(signin.username, signin.password);
-            if (res.data === "Login Successful !") {
+            if (res.data === "Login Successful") {
                 const userData = await UserData(signin.username);
                 const userId = userData.data.id;
                 localStorage.setItem('Usernamex', signin.username);
@@ -41,10 +41,13 @@ export default function Login() {
                 setTimeout(() => {
                     navigate('/dashboard');
                 }, 1500);
-            } else if (res.data === "Invalid Password") {
-                toast.update(toaster, { render: "Invalid Password!", type: "error", isLoading: false });
+            } else if (res.data === "Account Disabled") {
+                toast.update(toaster, { render: "Account Disabled !", type: "warning", isLoading: false });
+            }  else if (res.data === "Invalid Password") {
+                toast.update(toaster, { render: "Invalid Password !", type: "error", isLoading: false });
             } else {
                 toast.update(toaster, { render: "Invalid Username!", type: "error", isLoading: false });
+                console.log(res.data)
             }
         } catch (error) {
             toast.update(toaster, { render: "Error! Try again later", type: "error", isLoading: false });

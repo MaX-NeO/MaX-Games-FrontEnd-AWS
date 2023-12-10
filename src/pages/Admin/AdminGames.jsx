@@ -4,15 +4,12 @@ import { Gamesx, GameDelete, GameStatus, GamePin } from "../../services/api";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Settings, ShieldX, XCircle } from "lucide-react";
+import { Settings, ShieldX, XCircle, ShieldCheck, Star, ScanSearch } from "lucide-react";
 
 export default function AdminDashboard() {
     const [gamesx, setGamesx] = useState([]);
 
     const handleGameStatus = (id, enable) => {
-        console.log(enable);
-
-
         const toaster = toast.loading("Processing ...", {
             position: "bottom-right",
             autoClose: 3000,
@@ -25,18 +22,37 @@ export default function AdminDashboard() {
             isLoading: false
         })
         GameStatus(id, !enable)
-        .then(response => {
-            toast.update(toaster, { render: `${response.data}`, type: "success", isLoading: false });
-            loadGames();  
-        })
-        .catch(error => {
-          console.error('Error toggling user status:', error);
-        });
+            .then(response => {
+                toast.update(toaster, { render: `${response.data}`, type: "success", isLoading: false });
+                loadGames();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
 
     }
 
-    const handleGamePin = () => {
-
+    const handleGamePin = (id, enable) => {
+        console.log(enable);
+        const toaster = toast.loading("Processing ...", {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            isLoading: false
+        })
+        GamePin(id, !enable)
+            .then(response => {
+                toast.update(toaster, { render: `${response.data}`, type: "success", isLoading: false });
+                loadGames();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     }
     const handleDeleteGame = (gameId, gameName) => {
 
@@ -63,6 +79,7 @@ export default function AdminDashboard() {
                 });
         }
     };
+
     useEffect(() => {
         loadGames();
     }, []);
@@ -101,19 +118,26 @@ export default function AdminDashboard() {
                                                 <td>{game.gamename}</td>
                                                 <td>{game.gamedeveloper}</td>
                                                 <td>{game.auth.username}</td>
-
                                                 <td>
+                                                    <Link to={`/Admin/game/view/${game.id}`}>
+                                                        <button
+                                                            className='game-x-btn-examine'>
+                                                            <ScanSearch size={28} />
+                                                        </button>
+                                                    </Link>
                                                     <button
                                                         className={game.gameisenabled ? 'game-x-btn-disable' : 'game-x-btn-enable'}
                                                         onClick={() => handleGameStatus(game.id, game.gameisenabled)}>
-                                                        <span><ShieldX size={28} />
-                                                        </span>
+                                                        {
+                                                            game.gameisenabled ? <ShieldX size={28} /> : <ShieldCheck size={28} />
+                                                        }
                                                     </button>
                                                     <button
-                                                        className="game-x-delete-btn"
+                                                        className={game.gameispinned ? 'game-x-btn-pinned' : 'game-x-btn-unpinned'}
                                                         onClick={() => handleGamePin(game.id, game.gameispinned)}>
-                                                        <span><XCircle size={28} /></span>
+                                                        <Star size={28} />
                                                     </button>
+
                                                 </td>
                                                 <td>
                                                     <Link to={`/Admin/games/edit/${game.id}`}>
