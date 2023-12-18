@@ -1,13 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Max Game Hub</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="en" oncontextmenu="return false">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Max Game Hub</title>
+  <style>
+    @media all and (min-width: 480px) {
+      #root {
+        display: block;
+      }
+
+      #minscreen {
+        display: none;
+      }
+    }
+
+    @media all and (max-width: 479px) {
+      #root {
+        display: none;
+      }
+
+      #minscreen {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+
+    .loader-min {
+      width: 48px;
+      height: 48px;
+      background: #353535;
+      display: block;
+      margin: 20px auto;
+      position: relative;
+      box-sizing: border-box;
+      animation: rotationBackx 5s ease-in-out infinite reverse;
+    }
+
+    .loader-min::before {
+      content: '';
+      box-sizing: border-box;
+      left: 0;
+      top: 0;
+      transform: rotate(45deg);
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: #2e2e2e;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .loader-min::after {
+      content: '';
+      box-sizing: border-box;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: rgb(1, 104, 34);
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes rotationBackx {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(-360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="minscreen">
+    <div class="loader-min"></div>
+    <h1>Mobile view Disabled !!</h1>
+    <p>[ Scanning for layout changes ... ]</p>
+  </div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
