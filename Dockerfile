@@ -10,10 +10,9 @@ RUN npm run build
 FROM ubuntu
 RUN apt-get update
 RUN apt-get install nginx -y
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
-# COPY --from=build /app/dist /var/www/html/
-COPY --from=build /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /var/www/html/
+
 
 EXPOSE 80
 CMD ["nginx","-g","daemon off;"]
