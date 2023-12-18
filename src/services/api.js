@@ -5,7 +5,7 @@ import axios from "axios";
 const URL = 'http://3.111.219.118:8080/api';
 // const URL = 'http://localhost:8080/api';
 
-const SignUp = (username, password, email, phone, age) => axios.post(URL + '/auth/signup', { username, password, email, phone, age });
+const SignUp = (username, password, email, phone, age,isactive) => axios.post(URL + '/auth/signup', { username, password, email, phone, age ,isactive});
 const SignIn = (username, password) => axios.post(URL + '/auth/signin', { username, password })
 const UserData = (username) => axios.get(`${URL}/auth/user/${username}`);
 const userGamesx = (id) => axios.get(`${URL}/game/get/${id}`);

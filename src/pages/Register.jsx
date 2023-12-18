@@ -16,6 +16,7 @@ export default function Register() {
     phone: '',
     age: '',
     isactive:true
+
   })
   const handleChange = (e) => {
     setSignup({ ...signup, [e.target.id]: e.target.value })
@@ -26,7 +27,7 @@ export default function Register() {
     setTimeout(() => {
       setButtonDisabled(false);
     }, 5000);
-    const res = await SignUp(signup.username, signup.password, signup.email, signup.phone, signup.age);
+    const res = await SignUp(signup.username, signup.password, signup.email, signup.phone, signup.age, signup.isactive);
     if (res.data === "Signup Successful !") {
       toast.success('Signup Successful !', {
         position: "bottom-right",
@@ -92,7 +93,7 @@ export default function Register() {
                     <div className="right green"></div>
                   </button>
                 </form>
-                <div className="register-div">Goback ? <Link to="/login" className="link create-account"disabled={isButtonDisabled} > Login </Link></div>
+                <div className="register-div">Goback ? <Link to="/login" className="link create-account pl-1"disabled={isButtonDisabled} > Login </Link></div>
               </div>
             </div>
             <div className="onboarding">
@@ -103,7 +104,7 @@ export default function Register() {
                       <img src={Logo} loading="lazy" alt="img" />
                     </div>
                     <div className="slide-content">
-                      <h2>Turn your skills into reality.</h2>
+                      <h2>Let’s Play and Share.</h2>
                       <p>M-A-X G-A-M-E-S</p>
                     </div>
                   </div>

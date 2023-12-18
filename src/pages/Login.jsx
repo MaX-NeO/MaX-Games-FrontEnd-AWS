@@ -81,7 +81,7 @@ export default function Login() {
                                         <div className="right green"></div>
                                     </button>
                                 </form>
-                                <div className="register-div">Not registered yet? <Link to="/register" className="link create-account" > Create an account </Link></div>
+                                <div className="register-div">Not registered yet? <Link to="/register" className="link create-account pl-1" > Create an account </Link></div>
                             </div>
                         </div>
                         <div className="onboarding">
@@ -92,8 +92,8 @@ export default function Login() {
                                             <img src={Logo} loading="lazy" alt="img" />
                                         </div>
                                         <div className="slide-content">
-                                            <h2>Turn your skills into reality.</h2>
-                                            <Link to="/Admin/Login" className="link create-account" >Admin ?</Link>
+                                            <h2>The world of games.</h2>
+                                            <Link to="/Admin/Login" className="d-c-link" >Admin ?</Link>
                                         </div>
                                     </div>
                                 </div>

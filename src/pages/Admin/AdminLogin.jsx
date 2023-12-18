@@ -49,7 +49,7 @@ export default function AdminLogin() {
             console.error('An error occurred:', error);
         }
     };
-    
+
     return (
         <>
             <div className='mainxz'>
@@ -86,8 +86,8 @@ export default function AdminLogin() {
                                             <img src={Logo} loading="lazy" alt="img" />
                                         </div>
                                         <div className="slide-content">
-                                            <h2>Turn your skills into reality.</h2>
-                                            <p>`[`Play - Eat - Sleep `]`</p>
+                                            <h2>It’s playtime!</h2>
+                                            <p>M-A-X G-A-M-E-S</p>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@ export default function AdminLogin() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="dark"/>
+                theme="dark" />
         </>
     )
 }
