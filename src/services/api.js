@@ -2,7 +2,7 @@ import axios from "axios";
 
 //Spring Boot API Config 
 // const URL = 'https://max-games-aws.onrender.com/api';
-const URL = 'http://3.111.219.118:8080/api';
+const URL = 'https://max-games-backend-aws.onrender.com/api';
 // const URL = 'http://localhost:8080/api';
 
 const SignUp = (username, password, email, phone, age,isactive) => axios.post(URL + '/auth/signup', { username, password, email, phone, age ,isactive});
