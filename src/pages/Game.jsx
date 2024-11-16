@@ -91,7 +91,8 @@ export default function GameViewPage() {
               </button>
               <h3 className="game-sub ">Relese year : <span className='game-rel'>{game.releaseyear}</span></h3>
               <h3 className="game-sub ml-1">Developer : <span className='game-rel'>{game.gamedeveloper}</span></h3>
-              <h3 className="game-sub ml-1">Publisher : <span className='game-rel'>{game.auth.username}</span></h3>
+              {/* <h3 className="game-sub ml-1">Publisher : <span className='game-rel'>{game.auth.username}</span></h3>  */}
+              
             </div>
           </div>
           <div className='game-rating'><Star strokeWidth={2.5} /><h3 className="subtitle">{game.gameratings} / 10</h3></div>
